@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 export const ButtonBtn = styled.button`
-  background: ${({ primary }) => (primary ? "#01BF71" : "#010606")};
+  background: transparent;
   white-space: nowrap;
-  padding: 14px 48px;
+  width: 100%;
+  padding: 15px 0;
   color: ${({ dark }) => (dark ? "#010606" : "#FFF")};
   font-size: ${({ fontBig }) => (fontBig ? "1.25rem" : "1rem")};
   outline: none;
-  border: none;
+  border: 2px solid #3b3d3f;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -16,6 +17,11 @@ export const ButtonBtn = styled.button`
 
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: ${({ primary }) => (primary ? "#FFF" : "#01BF71")};
+    background: ${({ primary }) => (primary ? "#FFF" : "#FFF")};
+    color: #3b3d3f;
+  }
+
+  @media (min-width: 768px) {
+    width: 50%;
   }
 `;

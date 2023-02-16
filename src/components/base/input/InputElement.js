@@ -2,32 +2,31 @@ import styled from "styled-components";
 
 export const FormInputGroup = styled.div`
   position: relative;
-  width: 80%;
+  width: 100%;
   height: 35px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
   background-color: #3b3d3f;
 `;
 
 export const FormLabel = styled.label`
   position: absolute;
-  top: 5px;
-  left: 5px;
   z-index: 1;
-  font-size: 20px;
+  font-size: 14px;
+  padding-left: 10px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  color: #ccc;
 `;
 
 export const FormInput = styled.input`
-  position : absolute;
-  top : 0;
-  left : 0;
-  bottom : 0;
-  right : 0
+  position: absolute;
   border: none;
-  width: 100%;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
   outline: none;
   background-color: #3b3d3f;
-  font-size: 20px;
-  padding: 10px;
+  padding-left: 10px;
+  padding-top: 20px;
+  font-size: 14px;
 `;

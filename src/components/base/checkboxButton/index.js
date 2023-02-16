@@ -4,11 +4,11 @@ import {
   FormLabel,
 } from "./ChecboxButtonElement";
 
-const CheckboxButton = () => {
+const CheckboxButton = ({ label }) => {
   return (
     <CheckboxContainer>
-      <FormCheckBox />
-      <FormLabel />
+      <FormCheckBox type="checkbox" />
+      <FormLabel>{label}</FormLabel>
     </CheckboxContainer>
   );
 };
