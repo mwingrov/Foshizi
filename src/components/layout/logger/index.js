@@ -1,25 +1,21 @@
 import {
   LayoutWrapper,
   LoginPanel,
-  LogoContainer,
   SigninContainer,
   SignUpContainer,
   Heading_H3,
   Paragraph,
 } from "./LoggerElement";
-import Image from "next/image";
-import ImageLogo from "../../../../assets/images/FoshiziLogo.png";
 import Input from "@/components/base/input";
 import CheckboxButton from "@/components/base/checkboxButton";
 import Button from "@/components/base/button";
+import Logo from "@/components/base/logo";
 
 const Logger = () => {
   return (
     <LayoutWrapper>
       <LoginPanel>
-        <LogoContainer>
-          <Image src={ImageLogo} height="350" width="350" alt="logo-image" />
-        </LogoContainer>
+        <Logo size={350} />
         <SigninContainer>
           <Input label />
           <Input />

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Image from "next/image";
 
 export const LayoutWrapper = styled.section`
   font-family: "Poppins", sans-serif;
@@ -34,20 +33,6 @@ export const LoginPanel = styled.div`
   }
 `;
 
-export const LogoContainer = styled.div`
-  width: 100%;
-  @media (min-width: 425px) {
-    width: 50%;
-  }
-  @media (min-width: 1024px) {
-    width: 30%;
-  }
-`;
-
-export const NextImage = styled(Image)`
-  object-fit: containe;
-  background-color: red;
-`;
 export const SigninContainer = styled.div`
   width: 100%;
   display: flex;
