@@ -21,7 +21,7 @@ const Logger = () => {
           <Input />
           <Input />
           <CheckboxButton label="Keep me logged in" />
-          <Button btnText="Sign In" />
+          <Button btnText="Sign In" link="dashboard" />
         </SigninContainer>
         <SignUpContainer>
           <div>

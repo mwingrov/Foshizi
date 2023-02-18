@@ -4,7 +4,7 @@ import ImageLogo from "../../../../assets/images/FoshiziLogo.png";
 const Logo = ({ dashboard = false, size }) => {
   return (
     <LogoContainer dashboard={dashboard}>
-      <ImageEl src={ImageLogo} alt="logo-image" />
+      <ImageEl src={ImageLogo} alt="logo-image" dashboard={dashboard} />
     </LogoContainer>
   );
 };

@@ -10,15 +10,15 @@ export const DashboardWrapper = styled.section`
   gap: 20px;
   align-items: center;
 `;
+
 export const DashboardSideBar = styled.div`
   @media (min-width: 1024px) {
-    width: 25%;
+    width: 20%;
     background: #232729;
     border: 1px solid #232729;
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 50px;
     padding: 20px;
   }
 `;

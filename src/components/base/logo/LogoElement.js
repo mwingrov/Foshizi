@@ -2,9 +2,8 @@ import styled from "styled-components";
 import Image from "next/image";
 
 export const LogoContainer = styled.div`
-  width: 100%;
-  display: grid;
-  justify-content: center;
+  width: 75%;
+  display: flex;
   @media (min-width: 425px) {
     width: 50%;
   }
@@ -15,6 +14,6 @@ export const LogoContainer = styled.div`
 
 export const ImageEl = styled(Image)`
   object-fit: containe;
-  width: 250px;
-  height: 250px;
+  width: ${({ dashboard }) => (!dashboard ? "250px" : "200px")};
+  height: ${({ dashboard }) => (!dashboard ? "250px" : "200px")};
 `;

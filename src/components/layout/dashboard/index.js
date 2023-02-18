@@ -7,18 +7,20 @@ import {
 } from "./DashboardElement";
 
 import profileImage from "../../../../assets/images/profile.png";
+import IconSideLink from "@/components/base/iconSideLink";
 
 const Dashboard = () => {
   return (
     <DashboardWrapper>
       <DashboardSideBar>
-        <Logo dashboard={true} size={150} />
+        <Logo dashboard={true} size={100} />
         <IconText
           image={profileImage}
           title="John Dow"
           subtitle="Administrator"
           size={"200"}
         />
+        <IconSideLink />
       </DashboardSideBar>
       <DashboardMain></DashboardMain>
     </DashboardWrapper>
