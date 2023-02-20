@@ -1,12 +1,19 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 export const ButtonBtn = styled.button`
-  background: transparent;
+  background: ${({ bg }) =>
+    bg === "primary"
+      ? "#de821c"
+      : bg === "secondary"
+      ? "green"
+      : "transparent"};
   white-space: nowrap;
-  width: 100%;
-  padding: 15px 0;
-  color: ${({ dark }) => (dark ? "#010606" : "#FFF")};
-  font-size: ${({ fontBig }) => (fontBig ? "1.25rem" : "1rem")};
+  width: ${({ size }) =>
+    size === "lg" ? "200px" : size === "md" ? "150px" : "100px"};
+  color: "#FFF";
+  font-size: ${({ size }) =>
+    size === "lg" ? "1.25rem" : size === "md" ? "1rem" : "0.85rem"};
   outline: none;
   border: 2px solid #3b3d3f;
   cursor: pointer;
@@ -22,6 +29,20 @@ export const ButtonBtn = styled.button`
   }
 
   @media (min-width: 768px) {
-    width: 50%;
+    width: ${({ size }) =>
+      size === "lg" ? "300px" : size === "md" ? "250px" : "120px"};
+    height: ${({ size }) =>
+      size === "lg" ? "75px" : size === "md" ? "55px" : "45px"};
+  }
+`;
+
+export const LinkWrapper = styled(Link)`
+  text-decoration: none;
+  color: #fff;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: ${({ primary }) => (primary ? "#FFF" : "#FFF")};
+    color: #3b3d3f;
   }
 `;

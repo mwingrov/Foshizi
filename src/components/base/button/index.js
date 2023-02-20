@@ -1,10 +1,9 @@
-import Link from "next/link";
-import { ButtonBtn } from "./ButtonElement";
+import { ButtonBtn, LinkWrapper } from "./ButtonElement";
 
-const Button = ({ btnText, link }) => {
+const Button = ({ size, btnText, link, bg }) => {
   return (
-    <ButtonBtn>
-      <Link href={`/${link}`}>{btnText}</Link>
+    <ButtonBtn size={size} bg={bg}>
+      <LinkWrapper href={`/${link}`}>{btnText}</LinkWrapper>
     </ButtonBtn>
   );
 };

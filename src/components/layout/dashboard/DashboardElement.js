@@ -3,9 +3,7 @@ import Image from "next/image";
 
 export const DashboardWrapper = styled.section`
   font-family: "Poppins", sans-serif;
-  background: #333233;
-  width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   gap: 20px;
   align-items: center;
@@ -22,12 +20,6 @@ export const DashboardSideBar = styled.div`
     padding: 20px;
   }
 `;
-export const DashboardMain = styled.div`
-  width: calc(75% - 40px);
-  background: #232729;
-  height: calc(100% - 40px);
-`;
-
 export const LogoContainer = styled.div`
   width: 100%;
 `;
@@ -35,4 +27,18 @@ export const LogoContainer = styled.div`
 export const NextImage = styled(Image)`
   object-fit: containe;
   background-color: red;
+`;
+export const DashboardMain = styled.div`
+  margin-left: auto;
+  flex: 1;
+  display: grid;
+  grid-template-rows: 0.5fr repeat(2, 4fr);
+  gap: 30px;
+`;
+
+export const RowContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 20px 10px;
 `;

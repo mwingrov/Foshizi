@@ -60,7 +60,6 @@ export const Heading_H3 = styled.h3`
   color: #de821c;
   font-size: 20px;
   font-weight: 600;
-  text-align: center;
 
   @media (min-width: 678px) {
     font-size: 16px;
