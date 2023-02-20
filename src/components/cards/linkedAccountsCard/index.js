@@ -27,7 +27,7 @@ const LinkedAccountCard = () => {
           <LinkNoteIcon>
             <FaPenSquare />
           </LinkNoteIcon>
-        </LinkedItem>{" "}
+        </LinkedItem>
         <LinkedItem>
           <IconElement size="md" bg="purple">
             <FaApple />
@@ -45,7 +45,7 @@ const LinkedAccountCard = () => {
           <LinkNoteIcon>
             <FaPenSquare />
           </LinkNoteIcon>
-        </LinkedItem>{" "}
+        </LinkedItem>
         <LinkedItem>
           <IconElement size="md" bg="#de821c">
             <FaStripeS />
