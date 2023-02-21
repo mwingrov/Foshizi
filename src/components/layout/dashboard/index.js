@@ -13,13 +13,15 @@ import Header from "@/components/ui/header";
 import AccountDetailsCard from "@/components/cards/accountDetailsCard";
 import ProfileCard from "@/components/cards/profileCard";
 import LinkedAccountCard from "@/components/cards/linkedAccountsCard";
+import BioCard from "@/components/cards/bioCard";
+import ColleagueCard from "@/components/cards/colleaguesCard";
 // import IconSideLink from "@/components/base/iconSideLink";
 
 const Dashboard = () => {
   return (
     <DashboardWrapper>
       <DashboardSideBar>
-        <Logo dashboard={true} size={100} />
+        <Logo dashboard="true" size={100} />
         <IconText
           image={profileImage}
           title="John Dow"
@@ -37,7 +39,8 @@ const Dashboard = () => {
         </RowContainer>
         <RowContainer>
           <LinkedAccountCard />
-          <AccountDetailsCard />
+          {/* <BioCard /> */}
+          <ColleagueCard />
         </RowContainer>
       </DashboardMain>
     </DashboardWrapper>

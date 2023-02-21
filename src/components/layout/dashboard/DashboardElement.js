@@ -5,11 +5,22 @@ export const DashboardWrapper = styled.section`
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   gap: 20px;
   align-items: center;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    font-family: "Poppins", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
 `;
 
 export const DashboardSideBar = styled.div`
+  width: 100%;
+  display: none;
   @media (min-width: 1024px) {
     width: 20%;
     background: #232729;
@@ -26,19 +37,28 @@ export const LogoContainer = styled.div`
 
 export const NextImage = styled(Image)`
   object-fit: containe;
-  background-color: red;
 `;
 export const DashboardMain = styled.div`
-  margin-left: auto;
-  flex: 1;
-  display: grid;
-  grid-template-rows: 0.5fr repeat(2, 4fr);
-  gap: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  @media (min-width: 768px) {
+    margin-left: auto;
+    flex: 1;
+    display: grid;
+    grid-template-rows: repeat(3, 0.5fr);
+    gap: 0px;
+  }
 `;
 
 export const RowContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 20px 10px;
+  }
 `;

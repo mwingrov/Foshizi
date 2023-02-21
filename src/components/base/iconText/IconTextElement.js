@@ -4,11 +4,11 @@ import Image from "next/image";
 export const IconTextWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: ${({ textSize }) => (textSize === "sm" ? "5px" : "20px")};
 `;
 export const ImageContainer = styled.div`
-  width: ${({ big }) => (big === "200" ? "120px" : "80px")};
-  height: ${({ big }) => (big === "200" ? "120px" : "80px")};
+  width: ${({ big }) => (big === "200" ? "100px" : "40px")};
+  height: ${({ big }) => (big === "200" ? "100px" : "40px")};
   border-radius: 50%;
   background: #333233;
   padding: 4px;
@@ -25,11 +25,11 @@ export const ContentWrapper = styled.div`
   gap: 5px;
 `;
 export const Title = styled.h3`
-  font-size: 18px;
+  font-size: ${({ textSize }) => (textSize === "sm" ? "12px" : "18px")};
   font-weight: 600;
   color: #fff;
 `;
 export const Subtitle = styled.span`
-  font-size: 14px;
+  font-size: ${({ textSize }) => (textSize === "sm" ? "9px" : "12px")};
   color: #fff;
 `;

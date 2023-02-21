@@ -18,7 +18,8 @@ export const SearchBarInput = styled.input`
 `;
 export const SearchBarIcon = styled.span`
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 5px;
   bottom: 5px;
+  color: #fff;
 `;

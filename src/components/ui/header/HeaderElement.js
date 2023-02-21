@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
 export const HeaderWrapper = styled.div`
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  gap: 15px;
-  padding: 5px 10px;
-  background: #232729;
+  display: none;
+  @media (min-width: 768px) {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 15px;
+    padding: 5px 10px;
+    background: #232729;
+  }
 `;
 export const ButtonWrapper = styled.div`
   display: flex;

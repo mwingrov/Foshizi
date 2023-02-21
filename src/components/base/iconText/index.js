@@ -7,15 +7,15 @@ import {
   Subtitle,
 } from "./IconTextElement";
 
-const IconText = ({ image, title, subtitle, size }) => {
+const IconText = ({ image, title, subtitle, size, textSize }) => {
   return (
-    <IconTextWrapper>
+    <IconTextWrapper textSize={textSize}>
       <ImageContainer big={size}>
         <ImageElement src={image} width={size} height={size} alt={title} />
       </ImageContainer>
       <ContentWrapper>
-        <Title>{title}</Title>
-        <Subtitle>{subtitle}</Subtitle>
+        <Title textSize={textSize}>{title}</Title>
+        <Subtitle textSize={textSize}>{subtitle}</Subtitle>
       </ContentWrapper>
     </IconTextWrapper>
   );

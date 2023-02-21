@@ -9,13 +9,11 @@ export const ButtonBtn = styled.button`
       ? "green"
       : "transparent"};
   white-space: nowrap;
-  width: ${({ size }) =>
-    size === "lg" ? "200px" : size === "md" ? "150px" : "100px"};
+  height: 45px;
   color: "#FFF";
   font-size: ${({ size }) =>
     size === "lg" ? "1.25rem" : size === "md" ? "1rem" : "0.85rem"};
   outline: none;
-  border: 2px solid #3b3d3f;
   cursor: pointer;
   display: flex;
   justify-content: center;
