@@ -3,9 +3,9 @@ import Card from "@/components/base/card";
 import { IconElement } from "@/components/ui/header/HeaderElement";
 import { ProfileContainer, ProfileItem } from "./ProfileCardElement";
 
-const ProfileCard = () => {
+const ProfileCard = ({ width }) => {
   return (
-    <Card width="full" title="Profile">
+    <Card width={width} title="Profile">
       <ProfileContainer>
         <ProfileItem>
           <IconElement bg="pink">

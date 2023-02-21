@@ -9,7 +9,7 @@ import { FaSearch } from "react-icons/fa";
 const SearchBar = () => {
   return (
     <SearchBarWrapper>
-      <SearchBarInput />
+      <SearchBarInput type="text" placeholder="Search" />
       <SearchBarIcon>
         <FaSearch />
       </SearchBarIcon>

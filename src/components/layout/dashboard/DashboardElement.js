@@ -46,18 +46,29 @@ export const DashboardMain = styled.div`
     margin-left: auto;
     flex: 1;
     display: grid;
-    grid-template-rows: repeat(3, 0.5fr);
+    grid-template-rows: 0.1fr 1.5fr;
     gap: 0px;
   }
 `;
 
-export const RowContainer = styled.div`
+export const PanelContainer = styled.section`
   display: flex;
   flex-direction: column;
 
   @media (min-width: 768px) {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    padding: 20px 10px;
+  }
+`;
+export const RowContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
     gap: 10px;
     padding: 20px 10px;
   }

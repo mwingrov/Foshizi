@@ -8,9 +8,9 @@ import {
 } from "./AccountDetailsElement";
 import { Heading_H3 } from "@/components/layout/logger/LoggerElement";
 
-const AccountDetailsCard = () => {
+const AccountDetailsCard = ({ width }) => {
   return (
-    <Card width="full" title="Account Detaisl">
+    <Card width={width} title="Account Detaisl">
       <ContentContainer>
         <Content>
           <Heading_H3>Plan</Heading_H3>
