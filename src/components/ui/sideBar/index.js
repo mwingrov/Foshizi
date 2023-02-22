@@ -6,8 +6,11 @@ import {
   FaArrowUp,
   FaPowerOff,
 } from "react-icons/fa";
-import { Wrapper, Title } from "./SideBarElement";
+import { DashboardSideBar, Wrapper, Title } from "./SideBarElement";
 import IconSideLink from "@/components/base/iconSideLink";
+import Logo from "@/components/base/logo";
+import IconText from "@/components/base/iconText";
+import profileImage from "../../../../assets/images/profile.png";
 
 const links = [
   {
@@ -36,18 +39,33 @@ const links = [
   },
 ];
 
-const SideBarElement = () => {
+const SideBarElement = ({ showActivePanel, setShowActivePanel }) => {
+  const handleGreet = () => {
+    console.log("Hello");
+  };
   return (
-    <Wrapper>
-      <Title>Customize</Title>
-      {links.map((link, index) => (
-        <IconSideLink
-          key={index}
-          linkName={link.linkName}
-          linkIcon={link.icon}
-        />
-      ))}
-    </Wrapper>
+    <DashboardSideBar>
+      <Logo dashboard="true" size={100} />
+      <IconText
+        image={profileImage}
+        title="John Dow"
+        subtitle="Administrator"
+        size={"200"}
+      />
+      <Wrapper>
+        <Title>Customize</Title>
+        {links.map((link, index) => (
+          <div onClick={() => setShowActivePanel(link.linkName)} key={index}>
+            <IconSideLink
+              linkName={link.linkName}
+              linkIcon={link.icon}
+              showActivePanel={showActivePanel}
+            />
+          </div>
+        ))}
+      </Wrapper>
+      {/* <IconSideLink /> */}
+    </DashboardSideBar>
   );
 };
 
