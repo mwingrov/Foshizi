@@ -36,6 +36,7 @@ export const PanelContainer = styled.section`
   flex-direction: column;
 
   @media (min-width: 768px) {
+    overflow: auto;
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     gap: 10px;

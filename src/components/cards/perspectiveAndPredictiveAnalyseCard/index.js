@@ -1,7 +1,9 @@
-import React from "react";
+import Card from "@/components/base/card";
 
-const PerspectivePredictiveAnalysisCard = () => {
-  return <div>PerspectivePredictiveAnalysisCard</div>;
+const PerspectivePredictiveAnalysisCard = ({ width }) => {
+  return (
+    <Card width={width} title="Perspective and Predictive Analysis"></Card>
+  );
 };
 
 export default PerspectivePredictiveAnalysisCard;

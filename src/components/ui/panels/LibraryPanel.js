@@ -12,17 +12,17 @@ const LibraryPanel = () => {
   return (
     <PanelContainer>
       <RowContainer>
-        <CasualAnalysisCard />
-        <PerspectivePredictiveAnalysisCard />
-        <ProfileCard />
+        <CasualAnalysisCard width="" />
+        <PerspectivePredictiveAnalysisCard width="half" />
+        <ProfileCard width="" />
       </RowContainer>
       <RowContainer>
-        <StatisticalDataCard />
-        <CustomerSurveyCompletedCard />
+        <StatisticalDataCard width="half" />
+        <CustomerSurveyCompletedCard width="half" />
       </RowContainer>
-      <RowContainer>
-        <ExploratoryDataCard />
-      </RowContainer>
+      {/* <RowContainer>
+        <ExploratoryDataCard width="full" />
+      </RowContainer> */}
     </PanelContainer>
   );
 };

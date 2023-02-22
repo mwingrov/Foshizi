@@ -1,5 +1,6 @@
+import Card from "@/components/base/card";
 const CasualAnalysisCard = () => {
-  return <div>CasualAnalysisCard</div>;
+  return <Card width="" title="Casual Analysis"></Card>;
 };
 
 export default CasualAnalysisCard;

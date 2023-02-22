@@ -1,7 +1,7 @@
-import React from "react";
+import Card from "@/components/base/card";
 
-const ExploratoryDataCard = () => {
-  return <div>ExploratoryDataCard</div>;
+const ExploratoryDataCard = ({ width }) => {
+  return <Card width={width} title="Survey Completed"></Card>;
 };
 
 export default ExploratoryDataCard;
