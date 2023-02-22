@@ -11,6 +11,8 @@ export const LinkWrapper = styled.div`
   font-size: 16px;
   cursor: pointer;
   background: black;
+  border-left: ${({ showActivePanel }) =>
+    showActivePanel && "12px solid #de821c"};
 
   &:hover {
     border-left: 12px solid #de821c;

@@ -40,9 +40,6 @@ const links = [
 ];
 
 const SideBarElement = ({ showActivePanel, setShowActivePanel }) => {
-  const handleGreet = () => {
-    console.log("Hello");
-  };
   return (
     <DashboardSideBar>
       <Logo dashboard="true" size={100} />
@@ -54,12 +51,12 @@ const SideBarElement = ({ showActivePanel, setShowActivePanel }) => {
       />
       <Wrapper>
         <Title>Customize</Title>
-        {links.map((link, index) => (
-          <div onClick={() => setShowActivePanel(link.linkName)} key={index}>
+        {links.map(({ linkName, icon }, index) => (
+          <div onClick={() => setShowActivePanel(linkName)} key={index}>
             <IconSideLink
-              linkName={link.linkName}
-              linkIcon={link.icon}
-              showActivePanel={showActivePanel}
+              linkName={linkName}
+              linkIcon={icon}
+              showActivePanel={showActivePanel === linkName}
             />
           </div>
         ))}
