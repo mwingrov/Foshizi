@@ -15,11 +15,11 @@ export const CardWrapper = styled.div`
   }
 `;
 export const CardHeading = styled.h3`
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 600;
   color: #fff;
   padding: 5px;
-  media (min-width : 768px) {
+  media (min-width : 425px) {
     font-size: 20px;
     padding: 10px 20px;
   }
@@ -28,7 +28,7 @@ export const CardContainer = styled.div`
   height: 100%;
   background: #232729;
   border-radius: 4px;
-  padding: 5px;
+  padding: 20px;
   @media (min-width: 768px) {
     padding: 10px 20px;
   }

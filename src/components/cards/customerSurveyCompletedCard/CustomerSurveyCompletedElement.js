@@ -4,6 +4,10 @@ export const Heading = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px;
+  @media (min-width: 678px) {
+    padding: 0;
+  }
 `;
 export const SurveyList = styled.span`
   font-size: 12px;
@@ -35,6 +39,10 @@ export const SurveyContent = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
+  padding: 5px 20px;
+  @media (min-width: 678px) {
+    padding: 0;
+  }
 `;
 export const SurveyNumber = styled.span`
   color: #add8e6;

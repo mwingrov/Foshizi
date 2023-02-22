@@ -5,9 +5,8 @@ export const ProfileContainer = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 15px;
-  padding: 20px;
 `;
-export const ProfileItem = styled.ul`
+export const ProfileItem = styled.li`
   display: flex;
   gap: 15px;
   align-items: center;

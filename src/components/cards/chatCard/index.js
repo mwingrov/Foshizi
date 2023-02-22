@@ -11,11 +11,11 @@ const ChatCard = () => {
     <Card width="half" title="Chat">
       <ChatContainer>
         <ChatSender>
-          <ImageContainer big={""}>
+          <ImageContainer>
             <ImageElement
               src={profileImage}
-              width={""}
-              height={""}
+              width=""
+              height=""
               alt="sender-icon"
             />
           </ImageContainer>

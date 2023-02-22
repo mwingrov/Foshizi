@@ -54,7 +54,7 @@ const CustomerSurveyCompletedCard = ({ width }) => {
         </Status>
       </Heading>
       {customerSurveyCompleted.map(({ index, description, status }) => (
-        <SurveyContent>
+        <SurveyContent key={index}>
           <SurveyNumber>{index}</SurveyNumber>
           <SurveyDescription>{description}</SurveyDescription>
           <SurveyStatus status={status} />
