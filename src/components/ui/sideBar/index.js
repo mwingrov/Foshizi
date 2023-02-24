@@ -33,10 +33,6 @@ const links = [
     linkName: "Update to SSO",
     icon: <FaArrowUp />,
   },
-  {
-    linkName: "logout",
-    icon: FaPowerOff,
-  },
 ];
 
 const SideBarElement = ({ showActivePanel, setShowActivePanel }) => {
@@ -60,6 +56,13 @@ const SideBarElement = ({ showActivePanel, setShowActivePanel }) => {
             />
           </div>
         ))}
+        <div onClick={() => setShowActivePanel("Logout")}>
+          <IconSideLink
+            linkName="Logout"
+            linkIcon={FaPowerOff}
+            showActivePanel={showActivePanel === "Logout"}
+          />
+        </div>
       </Wrapper>
       {/* <IconSideLink /> */}
     </DashboardSideBar>
