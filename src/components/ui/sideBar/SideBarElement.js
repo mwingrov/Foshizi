@@ -8,7 +8,7 @@ export const DashboardSideBar = styled.div`
     width: 20%;
     background: #232729;
     border: 1px solid #232729;
-    height: 100%;
+    height: calc(100vh - 20px);
     display: flex;
     flex-direction: column;
     padding: 20px;

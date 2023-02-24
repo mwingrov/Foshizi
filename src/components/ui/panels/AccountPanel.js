@@ -1,24 +1,40 @@
-import ProfileCard from "@/components/cards/profileCard";
-import CustomerSurveyCompletedCard from "@/components/cards/customerSurveyCompletedCard";
-import ColleagueCard from "@/components/cards/colleaguesCard";
-import ChatCard from "@/components/cards/chatCard";
-import BioCard from "@/components/cards/bioCard";
 import {
   RowContainer,
   PanelContainer,
 } from "@/components/layout/dashboard/DashboardElement";
+import Card from "@/components/base/card";
+import Input from "@/components/base/input";
+import { InputGroup } from "@/components/base/input/InputElement";
+import Button from "@/components/base/button";
 
 const AccountPanel = () => {
   return (
     <PanelContainer>
       <RowContainer>
-        <ProfileCard width="" />
-        <BioCard width="" />
-        <CustomerSurveyCompletedCard width="half" />
+        <Card width="full" title="Personal information">
+          <InputGroup>
+            <Input label="First Name" type="text" />
+            <Input label="Last Name" type="text" />
+          </InputGroup>
+          <InputGroup>
+            <Input label="Phone Number" type="text" />
+            <Input label="Email Address" type="email" />
+          </InputGroup>
+        </Card>
       </RowContainer>
       <RowContainer>
-        <ColleagueCard width="full" />
-        <ChatCard width="half" />
+        <Card width="full" title="General Preference">
+          <InputGroup>
+            <Input label="Phone Number" type="text" />
+            <Input label="Email Address" type="email" />
+          </InputGroup>
+          <Button
+            size="md"
+            btnText="Permanently Delete Account"
+            link="/"
+            bg="danger"
+          />
+        </Card>
       </RowContainer>
     </PanelContainer>
   );

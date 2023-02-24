@@ -13,10 +13,10 @@ export const FormInputGroup = styled.div`
 export const FormLabel = styled.label`
   position: absolute;
   z-index: 1;
-  font-size: 14px;
-  padding-left: 10px;
-  padding-top: 10px;
-  margin-bottom: 10px;
+  font-size: 12px;
+  padding-left: 15px;
+  padding-top: 7.5px;
+  margin-bottom: 5px;
   color: #ccc;
 `;
 
@@ -27,7 +27,20 @@ export const FormInput = styled.input`
   height: calc(100% - 10px);
   outline: none;
   background-color: #3b3d3f;
-  padding-left: 10px;
+  padding-left: 15px;
   padding-top: 20px;
   font-size: 14px;
+  color: #fff;
+`;
+
+export const InputGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin-bottom: 50px;
+  background: #232729;
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;

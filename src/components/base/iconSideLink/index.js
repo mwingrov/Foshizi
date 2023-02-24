@@ -31,9 +31,9 @@ const IconSideLink = ({ linkName, linkIcon, showActivePanel }) => {
     <LinkWrapper showActivePanel={showActivePanel} onClick={(linkName) => handleLinkName(linkName)}>
       {/* {linkIcon} */}
       <LinkElement>{linkName}</LinkElement>
-      <Arrow>
-        <FaAngleDown />
-      </Arrow>
+      {linkName === "Logout" ? null : (
+        <Arrow>{showActivePanel ? <FaAngleRight /> : <FaAngleDown />}</Arrow>
+      )}
     </LinkWrapper>
   );
 };

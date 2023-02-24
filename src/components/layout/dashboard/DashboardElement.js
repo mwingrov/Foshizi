@@ -1,15 +1,12 @@
 import styled from "styled-components";
-import Image from "next/image";
 
 export const DashboardWrapper = styled.section`
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
   @media (min-width: 768px) {
-    flex-direction: row;
+    display: flex;
+    gap: 20px;
+    align-items: center;
     font-family: "Poppins", sans-serif;
     min-height: 100vh;
     display: flex;
@@ -19,10 +16,9 @@ export const DashboardWrapper = styled.section`
 `;
 
 export const DashboardMain = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
   @media (min-width: 768px) {
+    position: relative;
+    min-height: 100vh;
     margin-left: auto;
     flex: 1;
     display: grid;
@@ -32,25 +28,28 @@ export const DashboardMain = styled.div`
 `;
 
 export const PanelContainer = styled.section`
-  display: flex;
-  flex-direction: column;
-
+  padding: 10px;
   @media (min-width: 768px) {
+    padding: 10px 20px;
+    padding-right: 50px;
+  }
+  @media (min-width: 1024px) {
+    display: flex;
     overflow: auto;
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     gap: 10px;
-    padding: 20px 10px;
+    padding: 20px 0;
   }
 `;
 export const RowContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  @media (min-width: 768px) {
+  margin: 20px 0;
+  @media (min-width: 1024px) {
+    margin: 0;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: 10px;
-    padding: 20px 10px;
+    padding: 20px 0;
   }
 `;
