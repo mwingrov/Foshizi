@@ -1,29 +1,19 @@
 import styled from "styled-components";
 
-export const FormInputGroup = styled.div`
+export const FormSelectGroup = styled.div`
   position: relative;
   width: 100%;
-  height: 50px;
+  height: 65px;
   display: flex;
   flex-direction: column;
   background-color: #3b3d3f;
 `;
 
-export const FormLabel = styled.label`
-  position: absolute;
-  z-index: 1;
-  font-size: 12px;
-  padding-left: 15px;
-  padding-top: 7.5px;
-  margin-bottom: 5px;
-  color: #ccc;
-`;
-
-export const FormInput = styled.input`
+export const FormSelect = styled.select`
   position: absolute;
   border: none;
-  width: calc(100% - 10px);
-  height: calc(100% - 10px);
+  width: 100%;
+  height: 100%;
   outline: none;
   background: #343a3f;
   padding-left: 15px;
@@ -32,6 +22,11 @@ export const FormInput = styled.input`
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.08);
 `;
+
+export const FormOption = styled.option`
+  font-size: 14px;
+`;
+
 export const InputGroup = styled.div`
   display: flex;
   flex-direction: column;
