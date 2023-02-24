@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const FormInputGroup = styled.div`
   position: relative;
+  display: Inline-Block;
   width: 100%;
   height: 35px;
-  display: flex;
+  margin: 10px 0px 10px 0px;
   flex-direction: column;
   background-color: #3b3d3f;
 `;

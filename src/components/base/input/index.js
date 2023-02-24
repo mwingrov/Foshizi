@@ -1,11 +1,13 @@
 import { FormInputGroup, FormInput, FormLabel } from "./InputElement";
 
-const Input = () => {
+
+const Input = ({label ,type, onChange}) => {
+
   return (
-    <FormInputGroup>
-      <FormLabel>Username</FormLabel>
-      <FormInput type="text"></FormInput>
-    </FormInputGroup>
+      <FormInputGroup>
+        <FormLabel>{label}</FormLabel>
+        <FormInput type={type} onChange={onChange}></FormInput>      
+      </FormInputGroup>
   );
 };
 
