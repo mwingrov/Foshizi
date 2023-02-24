@@ -28,7 +28,7 @@ export const CardHeading = styled.h3`
 export const CardContainer = styled.div`
   height: ${({ isAccountCard }) => !isAccountCard && "100%"};
   overflow: auto;
-  background: #232729;
+  background: #2a2f34;
   border-radius: 10px;
   padding: 20px;
   @media (min-width: 768px) {

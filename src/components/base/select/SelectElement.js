@@ -26,17 +26,3 @@ export const FormSelect = styled.select`
 export const FormOption = styled.option`
   font-size: 14px;
 `;
-
-export const InputGroup = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  margin-bottom: 50px;
-  background: #232729;
-  @media (min-width: 1024px) {
-    width: 75%;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 50px;
-  }
-`;
