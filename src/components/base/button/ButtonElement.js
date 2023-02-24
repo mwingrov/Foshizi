@@ -7,9 +7,11 @@ export const ButtonBtn = styled.button`
       ? "#de821c"
       : bg === "secondary"
       ? "green"
+      : bg === "danger"
+      ? "red"
       : "transparent"};
   white-space: nowrap;
-  height: 45px;
+  height: 55px;
   color: "#FFF";
   font-size: ${({ size }) =>
     size === "lg" ? "1.25rem" : size === "md" ? "1rem" : "0.85rem"};
@@ -26,7 +28,7 @@ export const ButtonBtn = styled.button`
     color: #3b3d3f;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     width: ${({ size }) =>
       size === "lg" ? "300px" : size === "md" ? "250px" : "120px"};
     height: ${({ size }) =>

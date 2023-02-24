@@ -1,10 +1,10 @@
 import { FormInputGroup, FormInput, FormLabel } from "./InputElement";
 
-const Input = () => {
+const Input = ({ label, type }) => {
   return (
     <FormInputGroup>
-      <FormLabel>Username</FormLabel>
-      <FormInput type="text"></FormInput>
+      <FormLabel>{label}</FormLabel>
+      <FormInput type={type}></FormInput>
     </FormInputGroup>
   );
 };

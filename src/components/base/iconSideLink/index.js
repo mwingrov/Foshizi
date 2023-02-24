@@ -7,9 +7,7 @@ const IconSideLink = ({ linkName, linkIcon, showActivePanel }) => {
     <LinkWrapper showActivePanel={showActivePanel}>
       {/* {linkIcon} */}
       <LinkElement>{linkName}</LinkElement>
-      <Arrow>
-        <FaAngleDown />
-      </Arrow>
+      <Arrow>{showActivePanel ? <FaAngleRight /> : <FaAngleDown />}</Arrow>
     </LinkWrapper>
   );
 };

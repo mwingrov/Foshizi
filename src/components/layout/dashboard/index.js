@@ -9,7 +9,7 @@ import UpdateSSOPanel from "@/components/ui/panels/UpdateSSOPanel";
 import { DashboardWrapper, DashboardMain } from "./DashboardElement";
 
 const Dashboard = () => {
-  const [showActivePanel, setShowActivePanel] = useState("Settings");
+  const [showActivePanel, setShowActivePanel] = useState("My Account");
 
   return (
     <DashboardWrapper>

@@ -17,9 +17,8 @@ const Logger = () => {
       <LoginPanel>
         <Logo size={350} />
         <SigninContainer>
-          <Input label />
-          <Input />
-          <Input />
+          <Input label="Email" type="email" />
+          <Input label="Password" type="password" />
           <CheckboxButton label="Keep me logged in" />
           <Button btnText="Sign In" link="dashboard" />
         </SigninContainer>

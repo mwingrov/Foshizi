@@ -26,10 +26,11 @@ export const CardHeading = styled.h3`
 `;
 export const CardContainer = styled.div`
   height: 100%;
+  overflow: auto;
   background: #232729;
   border-radius: 4px;
   padding: 20px;
   @media (min-width: 768px) {
-    padding: 10px 20px;
+    padding: 20px;
   }
 `;

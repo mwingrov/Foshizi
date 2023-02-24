@@ -40,7 +40,7 @@ export const PanelContainer = styled.section`
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     gap: 10px;
-    padding: 20px 10px;
+    padding: 20px 0;
   }
 `;
 export const RowContainer = styled.div`
@@ -51,6 +51,6 @@ export const RowContainer = styled.div`
     flex-direction: row;
     justify-content: space-between;
     gap: 10px;
-    padding: 20px 10px;
+    padding: 20px 0;
   }
 `;
