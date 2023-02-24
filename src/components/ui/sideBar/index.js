@@ -64,7 +64,6 @@ const SideBarElement = ({ showActivePanel, setShowActivePanel }) => {
           />
         </div>
       </Wrapper>
-      {/* <IconSideLink /> */}
     </DashboardSideBar>
   );
 };

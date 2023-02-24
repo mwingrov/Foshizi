@@ -7,7 +7,9 @@ const IconSideLink = ({ linkName, linkIcon, showActivePanel }) => {
     <LinkWrapper showActivePanel={showActivePanel}>
       {/* {linkIcon} */}
       <LinkElement>{linkName}</LinkElement>
-      <Arrow>{showActivePanel ? <FaAngleRight /> : <FaAngleDown />}</Arrow>
+      {linkName === "Logout" ? null : (
+        <Arrow>{showActivePanel ? <FaAngleRight /> : <FaAngleDown />}</Arrow>
+      )}
     </LinkWrapper>
   );
 };
