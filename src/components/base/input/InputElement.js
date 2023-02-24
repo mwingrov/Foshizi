@@ -35,11 +35,11 @@ export const FormInput = styled.input`
 export const InputGroup = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 50px;
+  margin-bottom: 50px;
   background: #232729;
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     flex-direction: row;
     justify-content: space-between;
-    gap: 50px;
-    margin-bottom: 50px;
   }
 `;

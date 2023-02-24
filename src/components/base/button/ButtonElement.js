@@ -21,6 +21,8 @@ export const ButtonBtn = styled.button`
   justify-content: center;
   align-items: center;
   transition: all 0.2s ease-in-out;
+  border-radius: 5px;
+  border: none;
 
   &:hover {
     transition: all 0.2s ease-in-out;
