@@ -92,6 +92,7 @@ const Logger = () => {
                 <Input label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <CheckboxButton label="Keep me logged in" />
                 <Button onClick={handleLogin} btnText="Sign In" />
+                {errorMessage && <div>{errorMessage}</div>}
             </form>
           </SigninContainer>
           <SignUpContainer>
@@ -102,7 +103,6 @@ const Logger = () => {
                   as playlists,share and pitch
                 </Paragraph>
                 <Button onClick={handleRegister} btnText="Register"/>
-                {errorMessage && <div>{errorMessage}</div>}
             </div>
           </SignUpContainer>
       </LoginPanel>
