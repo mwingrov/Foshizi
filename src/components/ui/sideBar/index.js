@@ -65,13 +65,6 @@ const SideBarElement = ({ showActivePanel, setShowActivePanel }) => {
             />
           </div>
         ))}
-        <div onClick={() => setShowActivePanel("Logout")}>
-          <IconSideLink
-            linkName="Logout"
-            linkIcon={FaPowerOff}
-            showActivePanel={showActivePanel === "Logout"}
-          />
-        </div>
       </Wrapper>
     </DashboardSideBar>
   );

@@ -22,6 +22,7 @@ const Logger = () => {
   const [password, setPassword] = useState('');
   const route = useRouter();
   const dispatch =  useDispatch();
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -32,13 +33,52 @@ const Logger = () => {
       password: password,
       loggedIn: true,
     }));
-    route.push('/dashboard');
+
+    if (!username || !email || !password) {
+      setErrorMessage('Please fill in all fields');
+      return;
+    }
+    else {
+      route.push('/dashboard');
+    }
+    setErrorMessage('');
   };
 
   const handleRegister = (event) => {
     event.preventDefault();
-    // Perform login API call here and retrieve user data
+    
     route.push('/register');
+  };
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    dispatch(loginSuccess({
+      name: username,
+      email: email,
+      password: password,
+      loggedIn: true,
+    }));
+
+    if (!username || !email || !handlePasswordChange) {
+      setErrorMessage('Please fill in all fields');
+      return;
+    }
+    else {
+      route.push('/dashboard');
+    }
+    setErrorMessage('');
+  };
+
+  const isValidEmail = (e) => {
+    setEmail(e.target.value);
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    return (emailRegex.test(email)) ? console.log(emailRegex.test(email)) : console.log(emailRegex.test(email));
+  }
+
+  const handlePasswordChange = () => {
+    const minLength = 8;
+    const hasSpecialChar = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
+    return (password.length >= minLength && hasSpecialChar.test(password) ? route.push('/dashboard') : setErrorMessage('Password Invalid!'));
   };
 
   return (
@@ -48,10 +88,10 @@ const Logger = () => {
           <SigninContainer>
             <form onSubmit={handleSubmit}>
                 <Input label="Username" type="name" value={username} onChange={(e) => setUsername(e.target.value)} />
-                <Input label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <Input label="Email" type="email" value={email} onChange={isValidEmail} />
                 <Input label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <CheckboxButton label="Keep me logged in" />
-                <Button btnText="Sign In" />
+                <Button onClick={handleLogin} btnText="Sign In" />
             </form>
           </SigninContainer>
           <SignUpContainer>
@@ -62,6 +102,7 @@ const Logger = () => {
                   as playlists,share and pitch
                 </Paragraph>
                 <Button onClick={handleRegister} btnText="Register"/>
+                {errorMessage && <div>{errorMessage}</div>}
             </div>
           </SignUpContainer>
       </LoginPanel>

@@ -21,6 +21,7 @@ import {
     const [confirmPassword, setConfirmPassword] = useState('');
     const route = useRouter();
     const dispatch =  useDispatch();
+    const [errorMessage, setErrorMessage] = useState('');
   
     const handleSubmit = async (event) => {
       event.preventDefault();
@@ -32,8 +33,42 @@ import {
         password: password,
         loggedIn: true,
       }));
-      route.push('/dashboard');
+
+      if (!username || !email || !password || !confirmPassword) {
+        setErrorMessage('Please fill in all fields');
+        return;
+      }
+      if (password !== confirmPassword) {
+        setErrorMessage('Passwords do not match');
+        return;
+      }
+      else {
+        route.push('/dashboard');
+      }
+      setErrorMessage('');
+
+
     };
+
+    const isValidEmail = () => {
+      const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+      return (emailRegex.test(email)) ? console.log(emailRegex.test(email)) : console.log(emailRegex.test(email));
+    }
+  
+    const handlePasswordChange = (e) => {
+      setPassword(e.target.value);
+      const minLength = 8;
+      const hasSpecialChar = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
+      return (password.length >= minLength && hasSpecialChar.test(password));
+    };
+
+    const handleConfirmPasswordChange = (e) => {
+       setConfirmPassword(e.target.value);
+       const minLength = 8;
+       const hasSpecialChar = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
+       return (password.length >= minLength && hasSpecialChar.test(password));
+    };
+
   
     return (
       <LayoutWrapper>
@@ -41,15 +76,14 @@ import {
           <Logo size={350} />
             <RegisterContainer>
                 <form>
-                    <div>
                     <Input label="Username" type="name" value={username} onChange={(e) => setUsername(e.target.value)} />
                     <Input label="Phone Number" type="number" value={number} onChange={(e) => setNumber(e.target.value)} />
                     <Input label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                    <Input label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                    <Input label="Confirm Password" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+                    <Input label="Password" type="password" value={password} onChange={handlePasswordChange} />
+                    <Input label="Confirm Password" type="password"value={confirmPassword} onChange={handleConfirmPasswordChange} />
                     <CheckboxButton label="Keep me logged in" />
-                    </div>
                     <Button onClick={handleSubmit} btnText="Register" />
+                    {errorMessage && <div>{errorMessage}</div>}
                 </form>
             </RegisterContainer>
         </RegisterPanel>
