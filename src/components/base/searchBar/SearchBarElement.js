@@ -13,8 +13,9 @@ export const SearchBarInput = styled.input`
   color: #fff;
   border: none;
   outline: none;
-  background: #333233;
+  background: #343a3f;
   border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 `;
 export const SearchBarIcon = styled.span`
   position: absolute;
@@ -22,4 +23,10 @@ export const SearchBarIcon = styled.span`
   right: 5px;
   bottom: 5px;
   color: #fff;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: all ease-in-out 0.5ms;
+  }
 `;

@@ -10,7 +10,7 @@ import Logout from "@/components/ui/panels/LogoutPanel";
 import { DashboardWrapper, DashboardMain } from "./DashboardElement";
 
 const Dashboard = () => {
-  const [showActivePanel, setShowActivePanel] = useState("My Account");
+  const [showActivePanel, setShowActivePanel] = useState("Contacts");
 
   return (
     <DashboardWrapper>
