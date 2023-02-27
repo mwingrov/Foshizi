@@ -43,7 +43,7 @@ export const SigninContainer = styled.div`
     width: 40%;
   }
 `;
-export const SignUpContainer = styled.div`
+export const SignUpContainer = styled.form`
   display: none;
   @media (min-width: 1024px) {
     width: 30%;

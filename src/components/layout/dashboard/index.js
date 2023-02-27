@@ -6,10 +6,11 @@ import AccountPanel from "@/components/ui/panels/AccountPanel";
 import LibraryPanel from "@/components/ui/panels/LibraryPanel";
 import ContactPanel from "@/components/ui/panels/ContactPanel";
 import UpdateSSOPanel from "@/components/ui/panels/UpdateSSOPanel";
+import Logout from "@/components/ui/panels/LogoutPanel";
 import { DashboardWrapper, DashboardMain } from "./DashboardElement";
 
 const Dashboard = () => {
-  const [showActivePanel, setShowActivePanel] = useState("My Account");
+  const [showActivePanel, setShowActivePanel] = useState("Contacts");
 
   return (
     <DashboardWrapper>
@@ -29,7 +30,9 @@ const Dashboard = () => {
           <ContactPanel />
         ) : showActivePanel === "Update to SSO" ? (
           <UpdateSSOPanel />
-        ) : null}
+        ) : showActivePanel === "Logout" ? (
+          <Logout />
+        ): null}
       </DashboardMain>
     </DashboardWrapper>
   );

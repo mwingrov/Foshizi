@@ -11,6 +11,8 @@ import IconSideLink from "@/components/base/iconSideLink";
 import Logo from "@/components/base/logo";
 import IconText from "@/components/base/iconText";
 import profileImage from "../../../../assets/images/profile.png";
+import { useSelector } from "react-redux";
+import { selectUser } from "@/components/base/store/authSlice";
 
 const links = [
   {
@@ -33,16 +35,23 @@ const links = [
     linkName: "Update to SSO",
     icon: <FaArrowUp />,
   },
+  {
+    linkName: "Logout",
+    icon: <FaPowerOff />,
+  },
 ];
 
 const SideBarElement = ({ showActivePanel, setShowActivePanel }) => {
+
+  const user = useSelector(selectUser);
+
   return (
     <DashboardSideBar>
       <Logo dashboard="true" size={100} />
       <IconText
         image={profileImage}
-        title="John Dow"
-        subtitle="Administrator"
+        title={user.name}
+        subtitle={user.email}
         size={"200"}
       />
       <Wrapper>
@@ -56,13 +65,6 @@ const SideBarElement = ({ showActivePanel, setShowActivePanel }) => {
             />
           </div>
         ))}
-        <div onClick={() => setShowActivePanel("Logout")}>
-          <IconSideLink
-            linkName="Logout"
-            linkIcon={FaPowerOff}
-            showActivePanel={showActivePanel === "Logout"}
-          />
-        </div>
       </Wrapper>
     </DashboardSideBar>
   );

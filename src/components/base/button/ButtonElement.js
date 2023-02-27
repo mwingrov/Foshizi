@@ -26,8 +26,8 @@ export const ButtonBtn = styled.button`
 
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: ${({ primary }) => (primary ? "#FFF" : "#FFF")};
     color: #3b3d3f;
+    opacity: 0.75;
   }
 
   @media (min-width: 1024px) {
@@ -44,7 +44,5 @@ export const LinkWrapper = styled(Link)`
 
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: ${({ primary }) => (primary ? "#FFF" : "#FFF")};
-    color: #3b3d3f;
   }
 `;

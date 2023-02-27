@@ -1,11 +1,13 @@
 import { CardHeading, CardWrapper, CardContainer } from "./cardElement";
 
 const Card = (props) => {
-  const { width, title } = props;
+  const { width, title, isAccountCard } = props;
   return (
     <CardWrapper width={width}>
       <CardHeading>{title}</CardHeading>
-      <CardContainer>{props.children}</CardContainer>
+      <CardContainer isAccountCard={isAccountCard}>
+        {props.children}
+      </CardContainer>
     </CardWrapper>
   );
 };

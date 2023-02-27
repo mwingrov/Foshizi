@@ -10,7 +10,7 @@ import { Heading_H3 } from "@/components/layout/logger/LoggerElement";
 
 const AccountDetailsCard = ({ width }) => {
   return (
-    <Card width={width} title="Account Detaisl">
+    <Card width={width} title="Account Details">
       <ContentContainer>
         <Content>
           <Heading_H3>Plan</Heading_H3>
