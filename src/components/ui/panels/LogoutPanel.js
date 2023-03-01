@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout, selectUser } from '../../base/store/authSlice';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 const StyledModal = styled.div`
   position: fixed;
@@ -23,9 +24,10 @@ const StyledNotification = styled.div`
 `;
 
 const Logout = ({onClose}) => {
-    const user = useSelector(selectUser);
+    const localUser = useSelector(selectUser);
     const dispatch = useDispatch();
     const route = useRouter();
+    const [user, setUser] = useState();
     const logoutAction = {
         type: 'LOGOUT',
         payload: null, // optional payload
@@ -33,7 +35,7 @@ const Logout = ({onClose}) => {
 
     const handleClick = () => {
         setTimeout(() => {
-            route.push("/");
+            route.push('/');
             setTimeout(() => {dispatch(logout())}, 500);
         }, 3000);
     };
@@ -41,7 +43,7 @@ const Logout = ({onClose}) => {
     return (
     <StyledModal onClick={onClose}>
         <StyledNotification onClick={handleClick}>
-            <p>{user.name} is successfully logged out.</p>
+            <p>{localUser.name} is successfully logged out.</p>
         </StyledNotification>
     </StyledModal>
     );

@@ -7,9 +7,9 @@ import {
   import CheckboxButton from "@/components/base/checkboxButton";
   import Button from "@/components/base/button";
   import Logo from "@/components/base/logo";
-  import { useState } from "react";
-  import { useDispatch } from "react-redux";
-  import { loginSuccess } from "../../base/store/authSlice";
+  import { useEffect, useState } from "react";
+  import { useDispatch, useSelector } from "react-redux";
+  import { loginSuccess, selectUser } from "../../base/store/authSlice";
   import { useRouter } from "next/router";
   
   const Register = () => {
@@ -22,7 +22,9 @@ import {
     const route = useRouter();
     const dispatch =  useDispatch();
     const [errorMessage, setErrorMessage] = useState('');
-  
+    
+
+    
     const handleSubmit = async (event) => {
       event.preventDefault();
       // Perform login API call here and retrieve user data
@@ -33,6 +35,7 @@ import {
         password: password,
         loggedIn: true,
       }));
+      
 
       if (!username || !email || !password || !confirmPassword) {
         setErrorMessage('Please fill in all fields');

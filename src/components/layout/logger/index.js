@@ -14,6 +14,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginSuccess } from "../../base/store/authSlice";
 import { useRouter } from "next/router";
+import loginUser from "@/components/base/button/api";
 
 const Logger = () => {
 
@@ -50,6 +51,10 @@ const Logger = () => {
     route.push('/register');
   };
 
+  const handleApiLogin = async () => {
+    const result = await console.log(loginUser());
+  };
+
   const handleLogin = (event) => {
     event.preventDefault();
     dispatch(loginSuccess({
@@ -65,6 +70,7 @@ const Logger = () => {
     }
     else {
       route.push('/dashboard');
+      handleApiLogin();
     }
     setErrorMessage('');
   };

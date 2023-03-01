@@ -9,7 +9,7 @@ export const HeaderWrapper = styled.div`
     justify-content: space-around;
     gap: 15px;
     padding: 5px 10px;
-    background: #232729;
+    background: #2a2f34;
   }
 `;
 export const ButtonWrapper = styled.div`

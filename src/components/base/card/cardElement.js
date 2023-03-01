@@ -26,12 +26,12 @@ export const CardHeading = styled.h3`
   }
 `;
 export const CardContainer = styled.div`
-  height: 100%;
+  height: ${({ isAccountCard }) => !isAccountCard && "100%"};
   overflow: auto;
-  background: #232729;
-  border-radius: 4px;
+  background: #2a2f34;
+  border-radius: 10px;
   padding: 20px;
   @media (min-width: 768px) {
-    padding: 20px;
+    padding: ${({ isAccountCard }) => (isAccountCard ? "50px" : "20px")};
   }
 `;

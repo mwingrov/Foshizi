@@ -5,13 +5,12 @@ export const DashboardWrapper = styled.section`
   min-height: 100vh;
   @media (min-width: 768px) {
     display: flex;
-    gap: 20px;
     align-items: center;
     font-family: "Poppins", sans-serif;
     min-height: 100vh;
     display: flex;
-    gap: 20px;
     align-items: center;
+    gap: 5px;
   }
 `;
 
@@ -30,16 +29,17 @@ export const DashboardMain = styled.div`
 export const PanelContainer = styled.section`
   padding: 10px;
   @media (min-width: 768px) {
+    overflow-y: auto;
+    height: 90dvh;
     padding: 10px 20px;
     padding-right: 50px;
   }
   @media (min-width: 1024px) {
     display: flex;
-    overflow: auto;
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     gap: 10px;
-    padding: 20px 0;
+    padding: 20px;
   }
 `;
 export const RowContainer = styled.div`
