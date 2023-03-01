@@ -37,7 +37,6 @@ export const SurveyCompleteGrid = styled.div`
 export const SurveyCompleteGridItem = styled.div`
   height: 33.3%;
   min-height: 75px;
-  border: 1px solid white;
   background-color: #262626;
   box-sizing: border-box;
   position: relative;
