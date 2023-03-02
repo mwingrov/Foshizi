@@ -1,4 +1,4 @@
-import RecentActivitiesCard from "@/components/cards/recentActivitiesCard ";
+import RecentActivitiesCard from "@/components/cards/recentActivitiesCard";
 import {
   RowContainer,
   PanelContainer,

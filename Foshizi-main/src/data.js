@@ -35,3 +35,66 @@ export const languagesOptions = [
   "Xhosa",
   "Zulu - isiZulu",
 ];
+
+export const surveyData = {
+  heighlights: {
+    lorem1: {
+      min: 0,
+      max: 1000,
+      value: 841,
+    },
+    lorem2: {
+      min: 0,
+      max: 1000,
+      value: 642,
+    },
+    lorem3: {
+      min: 0,
+      max: 1000,
+      value: 361,
+    },
+    lorem4: {
+      min: 0,
+      max: 1000,
+      value: 242,
+    },
+  },
+  statuses: [
+    {
+      type: "Opened",
+      number: 834,
+      direction: "positive",
+      percentage: 20,
+    },
+    {
+      type: "Cancelled",
+      number: 234,
+      direction: "positive",
+      percentage: 15,
+    },
+    {
+      type: "Incomplete",
+      number: 642,
+      direction: "positive",
+      percentage: 20,
+    },
+    {
+      type: "New Customers",
+      number: 453,
+      direction: "negetive",
+      percentage: 15,
+    },
+    {
+      type: "Opened",
+      number: 834,
+      direction: "positive",
+      percentage: 20,
+    },
+    {
+      type: "Old Survey",
+      number: 678,
+      direction: "positive",
+      percentage: 20,
+    },
+  ],
+};
