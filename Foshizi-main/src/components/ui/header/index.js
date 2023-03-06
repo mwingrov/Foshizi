@@ -8,16 +8,13 @@ import {
   IconElement,
 } from "./HeaderElement";
 import { FaEnvelope, FaBell, FaBars } from "react-icons/fa";
-import { useSelector } from "react-redux";
-import { selectUser } from "@/components/base/store/authSlice";
 
-const Header = () => {
-
-  const user = useSelector(selectUser);
+const Header = (props) => {
+  const { user } = props;
 
   return (
     <HeaderWrapper>
-      <WelcomeText>Welcome, {user.name}</WelcomeText>
+      <WelcomeText>Welcome, {user?.name}</WelcomeText>
       <SearchBar />
       <ButtonWrapper>
         <Button btnText="Create Survey" link="create-survey" bg="primary" />
