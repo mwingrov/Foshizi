@@ -1,6 +1,6 @@
-import { ButtonBtn, LinkWrapper } from "./ButtonElement";
+import { ButtonBtn, LinkWrapper, TextButton } from "./ButtonElement";
 
-const Button = ({ size, btnText, link, bg, disabled, onClick }) => {
+const Button = ({ size, btnText, link, bg, disabled, onClick, isBtn }) => {
   return (
     <ButtonBtn
       onClick={onClick}
@@ -9,7 +9,11 @@ const Button = ({ size, btnText, link, bg, disabled, onClick }) => {
       size={size}
       bg={bg}
     >
-      <LinkWrapper href={link ? link : "/"}>{btnText}</LinkWrapper>
+      {!isBtn ? (
+        <LinkWrapper href={link ? link : "/"}>{btnText}</LinkWrapper>
+      ) : (
+        <TextButton>{btnText}</TextButton>
+      )}
     </ButtonBtn>
   );
 };

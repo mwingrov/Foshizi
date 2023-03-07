@@ -14,7 +14,6 @@ import Logo from "@/components/base/logo";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { signIn, useSession } from "next-auth/react";
-import Link from "next/link";
 
 const Logger = () => {
   const router = useRouter();
@@ -32,6 +31,7 @@ const Logger = () => {
       setErrorMessagePassword("Please enter a valid email address");
       return;
     } else if (!password) {
+      setErrorMessageEmail("");
       setErrorMessagePassword("Please enter a valid password address");
       return;
     }

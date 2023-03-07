@@ -46,3 +46,12 @@ export const LinkWrapper = styled(Link)`
     transition: all 0.2s ease-in-out;
   }
 `;
+
+export const TextButton = styled.span`
+  text-decoration: none;
+  color: #fff;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+  }
+`;
