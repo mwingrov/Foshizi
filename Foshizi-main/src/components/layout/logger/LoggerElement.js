@@ -15,6 +15,7 @@ export const LoginPanel = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
+  gap: 10px;
   padding: 20px;
 
   @media (min-width: 425px) {
@@ -33,15 +34,22 @@ export const LoginPanel = styled.div`
   }
 `;
 
-export const SigninContainer = styled.div`
+export const SigninContainer = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 2rem;
 
   @media (min-width: 1024px) {
-    width: 40%;
+    width: 30%;
   }
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 20px;
 `;
 export const SignUpContainer = styled.form`
   display: none;
@@ -50,7 +58,7 @@ export const SignUpContainer = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
     color: #3b3d3f;
     gap: 50px;
   }
@@ -60,17 +68,12 @@ export const Heading_H3 = styled.h3`
   color: #de821c;
   font-size: 20px;
   font-weight: 600;
-
-  @media (min-width: 678px) {
-    font-size: 16px;
-  }
 `;
 
 export const Paragraph = styled.p`
-  margin-top: 20px;
-  color: #de821c;
+  margin-top: 5px;
   font-size: 16px;
-  color: #3b3d3f;
+  color: grey;
   letter-spacing: 1.1px;
   line-height: 24px;
   padding-bottom: 5px;

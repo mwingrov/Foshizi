@@ -24,8 +24,12 @@ import {
 } from "./recentActivitiesElement";
 import { FaEnvelope, FaPhoneAlt, FaTasks, FaRocketchat } from "react-icons/fa";
 import { IconElement } from "@/components/ui/header/HeaderElement";
+import { useSession } from "next-auth/react";
 
 const RecentActivitiesCard = ({ width }) => {
+  const { data: session } = useSession();
+  const { email } = session.user;
+
   const recentActivities = [
     {
       title:
@@ -51,7 +55,7 @@ const RecentActivitiesCard = ({ width }) => {
     },
   ];
   const details = {
-    email: "simon33@gumedes.com",
+    email,
     workPhone: "011-767-3456",
     personalPhone: "089 488 7834",
     position: "Manager",
