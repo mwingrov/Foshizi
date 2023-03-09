@@ -49,11 +49,13 @@ const SideBarElement = (props) => {
   if (!user) {
     push("/");
   }
+
+  console.log(user);
   return (
     <DashboardSideBar>
       <Logo dashboard="true" size={100} />
       <IconText
-        image={profileImage}
+        image={user.image ? user.image : profileImage}
         title={user?.name}
         subtitle={user?.email}
         size={"200"}
