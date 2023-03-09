@@ -8,34 +8,35 @@ import {
   IconElement,
 } from "./HeaderElement";
 import { FaEnvelope, FaBell, FaBars } from "react-icons/fa";
-import { useSelector } from "react-redux";
-import { selectUser } from "@/components/base/store/authSlice";
+import { useSession } from "next-auth/react";
 
 const Header = () => {
+  const { data: session } = useSession();
 
-  const user = useSelector(selectUser);
-
-  return (
-    <HeaderWrapper>
-      <WelcomeText>Welcome, {user.name}</WelcomeText>
-      <SearchBar />
-      <ButtonWrapper>
-        <Button btnText="Create Survey" link="create-survey" bg="primary" />
-        <Button btnText="Plans/Pricing" link="plans" bg="secondary" />
-      </ButtonWrapper>
-      <IconWrapper>
-        <IconElement bg="green">
-          <FaEnvelope />
-        </IconElement>
-        <IconElement bg="red">
-          <FaBell />
-        </IconElement>
-        <IconElement>
-          <FaBars />
-        </IconElement>
-      </IconWrapper>
-    </HeaderWrapper>
-  );
+  if (session) {
+    const { name } = session.user;
+    return (
+      <HeaderWrapper>
+        <WelcomeText>Welcome, {name}</WelcomeText>
+        <SearchBar />
+        <ButtonWrapper>
+          <Button btnText="Create Survey" link="create-survey" bg="primary" />
+          <Button btnText="Plans/Pricing" link="plans" bg="secondary" />
+        </ButtonWrapper>
+        <IconWrapper>
+          <IconElement bg="green">
+            <FaEnvelope />
+          </IconElement>
+          <IconElement bg="red">
+            <FaBell />
+          </IconElement>
+          <IconElement>
+            <FaBars />
+          </IconElement>
+        </IconWrapper>
+      </HeaderWrapper>
+    );
+  }
 };
 
 export default Header;

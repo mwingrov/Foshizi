@@ -13,6 +13,7 @@ import IconText from "@/components/base/iconText";
 import profileImage from "../../../../assets/images/profile.png";
 import { useSelector } from "react-redux";
 import { selectUser } from "@/components/base/store/authSlice";
+import { useRouter } from "next/router";
 
 const links = [
   {
@@ -41,17 +42,22 @@ const links = [
   },
 ];
 
-const SideBarElement = ({ showActivePanel, setShowActivePanel }) => {
+const SideBarElement = (props) => {
+  const { user, showActivePanel, setShowActivePanel } = props;
+  const { push } = useRouter();
 
-  const user = useSelector(selectUser);
+  if (!user) {
+    push("/");
+  }
 
+  console.log(user);
   return (
     <DashboardSideBar>
       <Logo dashboard="true" size={100} />
       <IconText
-        image={profileImage}
-        title={user.name}
-        subtitle={user.email}
+        image={user.image ? user.image : profileImage}
+        title={user?.name}
+        subtitle={user?.email}
         size={"200"}
       />
       <Wrapper>

@@ -32,13 +32,22 @@ export const ButtonBtn = styled.button`
 
   @media (min-width: 1024px) {
     width: ${({ size }) =>
-      size === "lg" ? "300px" : size === "md" ? "250px" : "120px"};
+      size === "lg" ? "300px" : size === "md" ? "100%" : "120px"};
     height: ${({ size }) =>
-      size === "lg" ? "75px" : size === "md" ? "55px" : "45px"};
+      size === "lg" ? "65px" : size === "md" ? "50px" : "45px"};
   }
 `;
 
 export const LinkWrapper = styled(Link)`
+  text-decoration: none;
+  color: #fff;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+  }
+`;
+
+export const TextButton = styled.span`
   text-decoration: none;
   color: #fff;
 

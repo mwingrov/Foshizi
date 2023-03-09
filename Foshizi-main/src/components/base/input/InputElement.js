@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const FormInputGroup = styled.div`
   position: relative;
-  display: Inline-Block;
+  display: flex;
   width: 100%;
   height: 35px;
-  margin: 10px 0px 10px 0px;
   flex-direction: column;
   background-color: #3b3d3f;
+  margin-top: 5px;
 `;
 
 export const FormLabel = styled.label`
@@ -23,15 +23,16 @@ export const FormLabel = styled.label`
 export const FormInput = styled.input`
   position: absolute;
   border: none;
-  width: calc(100% - 10px);
-  height: calc(100% - 10px);
+  width: calc(100% - 20px);
+  height: 100%;
   outline: none;
   background: #343a3f;
-  padding-left: 15px;
   padding-top: 20px;
+  padding-left: 15px;
   font-size: 14px;
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: ${({ errorMessage }) =>
+    errorMessage ? "1px red solid" : "1px solid rgba(255, 255, 255, 0.08)"};
 `;
 export const InputGroup = styled.div`
   display: flex;
