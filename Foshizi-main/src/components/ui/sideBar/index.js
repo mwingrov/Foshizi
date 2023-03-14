@@ -6,12 +6,25 @@ import {
   FaArrowUp,
   FaPowerOff,
 } from "react-icons/fa";
-import { DashboardSideBar, Wrapper, Title } from "./SideBarElement";
+import {
+  DashboardSideBar,
+  Wrapper,
+  Title,
+  ProfileWrapper,
+  UserProfile,
+  LogoWrapperSideBar,
+} from "./SideBarElement";
 import IconSideLink from "@/components/base/iconSideLink";
 import Logo from "@/components/base/logo";
 import IconText from "@/components/base/iconText";
 import profileImage from "../../../../assets/images/profile.png";
 import { useRouter } from "next/router";
+import {
+  ContentWrapper,
+  ImageContainer,
+  ImageElement,
+  Subtitle,
+} from "@/components/base/iconText/IconTextElement";
 
 const links = [
   {
@@ -48,16 +61,29 @@ const SideBarElement = (props) => {
     push("/");
   }
 
-  console.log(user);
   return (
     <DashboardSideBar>
-      <Logo dashboard="true" size={100} />
-      <IconText
-        image={user.image ? user.image : profileImage}
-        title={user?.name}
-        subtitle={user?.email}
-        size={"200"}
-      />
+      <LogoWrapperSideBar>
+        <Logo dashboard="true" size={100} />
+      </LogoWrapperSideBar>
+      <ProfileWrapper>
+        <IconText
+          image={user.image ? user.image : profileImage}
+          title={user?.name}
+          subtitle={user?.email}
+          size={"200"}
+        />
+      </ProfileWrapper>
+      <UserProfile>
+        <ImageContainer big="100">
+          <ImageElement
+            src={user.image ? user.image : profileImage}
+            width="200"
+            height="200"
+            alt={user?.name}
+          />
+        </ImageContainer>
+      </UserProfile>
       <Wrapper>
         <Title>Customize</Title>
         {links.map(({ linkName, icon }, index) => (

@@ -7,7 +7,7 @@ import {
   IconWrapper,
   IconElement,
 } from "./HeaderElement";
-import { FaEnvelope, FaBell, FaBars } from "react-icons/fa";
+import { FaEnvelope, FaBell, FaBars, FaSearch } from "react-icons/fa";
 import { useSession } from "next-auth/react";
 
 const Header = () => {
@@ -24,6 +24,9 @@ const Header = () => {
           <Button btnText="Plans/Pricing" link="plans" bg="secondary" />
         </ButtonWrapper>
         <IconWrapper>
+          <IconElement bg="grey">
+            <FaSearch />
+          </IconElement>
           <IconElement bg="green">
             <FaEnvelope />
           </IconElement>

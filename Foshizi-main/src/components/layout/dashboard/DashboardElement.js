@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const DashboardWrapper = styled.section`
   font-family: "Poppins", sans-serif;
-  min-height: 100vh;
   @media (min-width: 768px) {
+    min-height: 100vh;
     display: flex;
     align-items: center;
     font-family: "Poppins", sans-serif;
@@ -44,6 +44,8 @@ export const PanelContainer = styled.section`
 `;
 export const RowContainer = styled.div`
   margin: 20px 0;
+  margin-top: 80px;
+
   @media (min-width: 1024px) {
     margin: 0;
     display: flex;

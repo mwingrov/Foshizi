@@ -4,9 +4,8 @@ import { FaAngleDown, FaAngleRight } from "react-icons/fa";
 import { useState } from "react";
 
 const IconSideLink = ({ linkName, linkIcon, showActivePanel }) => {
-
   const [showNotification, setShowNotification] = useState(false);
-  
+
   const handleLogout = () => {
     // handle logout logic
     setShowNotification(true);
@@ -19,15 +18,18 @@ const IconSideLink = ({ linkName, linkIcon, showActivePanel }) => {
   const handleLinkName = (linkName) => {
     if (linkName === "Logout") {
       handleLogout();
-      {showNotification && (
-        <Logout onClose={handleCloseNotification} />
-      )};
+      {
+        showNotification && <Logout onClose={handleCloseNotification} />;
+      }
     }
-  }
-  
+  };
+
   return (
-    <LinkWrapper showActivePanel={showActivePanel} onClick={(linkName) => handleLinkName(linkName)}>
-      {/* {linkIcon} */}
+    <LinkWrapper
+      showActivePanel={showActivePanel}
+      onClick={(linkName) => handleLinkName(linkName)}
+    >
+      {linkIcon}
       <LinkElement>{linkName}</LinkElement>
       {linkName === "Logout" ? null : (
         <Arrow>{showActivePanel ? <FaAngleRight /> : <FaAngleDown />}</Arrow>

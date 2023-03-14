@@ -7,8 +7,10 @@ export const IconTextWrapper = styled.div`
   gap: ${({ textSize }) => (textSize === "sm" ? "5px" : "20px")};
 `;
 export const ImageContainer = styled.div`
-  width: ${({ big }) => (big === "200" ? "100px" : "40px")};
-  height: ${({ big }) => (big === "200" ? "100px" : "40px")};
+  width: ${({ big }) =>
+    big === "200" ? "100px" : big === "100" ? "60px" : "40px"};
+  height: ${({ big }) =>
+    big === "200" ? "100px" : big === "100" ? "60px" : "40px"};
   border-radius: 50%;
   background: #333233;
   padding: 4px;

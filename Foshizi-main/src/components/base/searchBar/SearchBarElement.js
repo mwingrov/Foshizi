@@ -2,11 +2,10 @@ import styled from "styled-components";
 
 export const SearchBarWrapper = styled.div`
   display: none;
-  position: relative;
-  flex-basis: 25%;
-  background: #333;
-
   @media (min-width: 678px) {
+    position: relative;
+    background: #333;
+    flex-basis: 25%;
     width: 230px;
   }
 `;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const HeaderWrapper = styled.div`
   position: fixed;
   width: 100%;
-  height: 100px;
+  height: 55px;
   padding-top: 10px;
   display: flex;
   flex-direction: column;
@@ -47,11 +47,13 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const WelcomeText = styled.h2`
+  display: none;
   font-size: 16px;
   text-transform: uppercase;
   line-height: 22px;
   color: #fff;
   @media (min-width: 768px) {
+    display: flex;
     font-size: 16px;
     line-height: 32px;
     flex-basis: 20%;
