@@ -1,12 +1,17 @@
 import styled from "styled-components";
 
 export const SearchBarWrapper = styled.div`
+  display: none;
   position: relative;
-  width: 280px;
+  flex-basis: 25%;
   background: #333;
+
+  @media (min-width: 678px) {
+    width: 230px;
+  }
 `;
 export const SearchBarInput = styled.input`
-  width: 100%;
+  width: calc(100% - 15px);
   height: 35px;
   padding: 5px 10px;
   font-size: 16px;

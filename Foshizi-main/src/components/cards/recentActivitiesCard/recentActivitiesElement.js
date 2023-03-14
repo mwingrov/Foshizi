@@ -64,11 +64,11 @@ export const ActivityStatus = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 12px;
+  padding: 5px 20px;
   text-transform: uppercase;
   width: max-content;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     padding: 0 20px;
   }
 `;
@@ -87,8 +87,11 @@ export const TextAreaContainer = styled.textarea`
 
 export const IconWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
   color: #fff;
+  gap: 25px;
+  @media (min-width: 1024px) {
+    justify-content: space-between;
+  }
 `;
 
 export const DetailsHeading = styled.div`

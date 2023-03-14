@@ -11,7 +11,7 @@ import { DashboardWrapper, DashboardMain } from "./DashboardElement";
 import { signOut } from "next-auth/react";
 
 const Dashboard = ({ user }) => {
-  const [showActivePanel, setShowActivePanel] = useState("Settings");
+  const [showActivePanel, setShowActivePanel] = useState("Overview");
 
   return (
     <DashboardWrapper>
@@ -22,7 +22,7 @@ const Dashboard = ({ user }) => {
       />
       <DashboardMain>
         <Header user={user} />
-        {showActivePanel === "Settings" ? (
+        {showActivePanel === "Overview" ? (
           <SettingPanel />
         ) : showActivePanel === "My Account" ? (
           <AccountPanel />

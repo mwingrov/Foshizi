@@ -30,6 +30,13 @@ export const ButtonBtn = styled.button`
     opacity: 0.75;
   }
 
+  @media (min-width: 768px) {
+    width: ${({ size }) =>
+      size === "lg" ? "300px" : size === "md" ? "100%" : "100px"};
+    height: ${({ size }) =>
+      size === "lg" ? "65px" : size === "md" ? "50px" : "35px"};
+  }
+
   @media (min-width: 1024px) {
     width: ${({ size }) =>
       size === "lg" ? "300px" : size === "md" ? "100%" : "120px"};

@@ -15,7 +15,7 @@ import { useRouter } from "next/router";
 
 const links = [
   {
-    linkName: "Settings",
+    linkName: "Overview",
     icon: <FaWrench />,
   },
   {
