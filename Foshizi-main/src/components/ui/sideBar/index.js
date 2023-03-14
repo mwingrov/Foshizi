@@ -11,8 +11,6 @@ import IconSideLink from "@/components/base/iconSideLink";
 import Logo from "@/components/base/logo";
 import IconText from "@/components/base/iconText";
 import profileImage from "../../../../assets/images/profile.png";
-import { useSelector } from "react-redux";
-import { selectUser } from "@/components/base/store/authSlice";
 import { useRouter } from "next/router";
 
 const links = [

@@ -14,27 +14,44 @@ export const authOptions = {
         if (!email) {
           return null;
         }
-        // const res = await fetch("http://localhost:8080/auth/login", {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify({
-        //     email,
-        //     password,
-        //   }),
-        // });
-        // let user = await res.json();
-        let user = {
-          id: 1,
-          phone: "089 848 8484",
-          name: email,
-          email: email,
-          address: "13 Bloemendal Mowbray",
-          zip: "7700",
-          role: "Frontend Software Engineer",
-          accessToken: "Y9/yr3NfXj4mKcp1PxX1Bnshb3Z7X+nHXwZWVkU3Uas=",
+
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        var raw = JSON.stringify({
+          email: "heritier@gmail.com",
+          password: "123456",
+        });
+
+        var requestOptions = {
+          method: "POST",
+          headers: myHeaders,
+          body: raw,
+          redirect: "follow",
         };
+        let user;
+        try {
+          const response = await fetch(
+            "https://foshizi.herokuapp.com/api/loginuser",
+            requestOptions
+          );
+          const data = await response.json();
+
+          const { result } = data;
+          user = {
+            id: result._id,
+            phone: "089 848 8484",
+            name: result.name,
+            email: result.email,
+            address: "13 Bloemendal Mowbray",
+            zip: "7700",
+            role: "Frontend Software Engineer",
+            accessToken: "Y9/yr3NfXj4mKcp1PxX1Bnshb3Z7X+nHXwZWVkU3Uas=",
+          };
+        } catch (error) {
+          throw new Error(error.message);
+        }
+
         if (user) {
           return user;
         } else {
