@@ -21,6 +21,7 @@ export const DashboardSideBar = styled.div`
     height: calc(100vh - 20px);
     align-items: start;
     padding: 10px;
+    border-radius: 0px;
   }
 `;
 

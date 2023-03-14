@@ -4,6 +4,7 @@ export const SearchBarWrapper = styled.div`
   display: none;
   @media (min-width: 678px) {
     position: relative;
+    display: block;
     background: #333;
     flex-basis: 25%;
     width: 230px;
