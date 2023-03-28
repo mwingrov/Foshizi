@@ -10,7 +10,7 @@ import Logout from "@/components/ui/panels/LogoutPanel";
 import { DashboardWrapper, DashboardMain } from "./DashboardElement";
 import { signOut } from "next-auth/react";
 
-const Dashboard = ({ user }) => {
+const Dashboard = ({ user, surveys, users }) => {
   const [showActivePanel, setShowActivePanel] = useState("Overview");
 
   return (
@@ -23,7 +23,7 @@ const Dashboard = ({ user }) => {
       <DashboardMain>
         <Header user={user} />
         {showActivePanel === "Overview" ? (
-          <SettingPanel />
+          <SettingPanel users={users} />
         ) : showActivePanel === "My Account" ? (
           <AccountPanel />
         ) : showActivePanel === "Library" ? (

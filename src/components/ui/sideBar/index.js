@@ -20,10 +20,8 @@ import IconText from "@/components/base/iconText";
 import profileImage from "../../../../assets/images/profile.png";
 import { useRouter } from "next/router";
 import {
-  ContentWrapper,
   ImageContainer,
   ImageElement,
-  Subtitle,
 } from "@/components/base/iconText/IconTextElement";
 
 const links = [
@@ -68,7 +66,7 @@ const SideBarElement = (props) => {
       </LogoWrapperSideBar>
       <ProfileWrapper>
         <IconText
-          image={user.image ? user.image : profileImage}
+          image={user?.image ? user.image : profileImage}
           title={user?.name}
           subtitle={user?.email}
           size={"200"}
@@ -77,7 +75,7 @@ const SideBarElement = (props) => {
       <UserProfile>
         <ImageContainer big="100">
           <ImageElement
-            src={user.image ? user.image : profileImage}
+            src={user?.image ? user.image : profileImage}
             width="200"
             height="200"
             alt={user?.name}

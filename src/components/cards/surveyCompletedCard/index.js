@@ -141,12 +141,12 @@ const SurveyCompletedCard = () => {
         </div>
 
         <SurveyCompleteGrid>
-          {surveyData.statuses.map((data) => (
+          {surveyData.statuses.map((data, index) => (
             <SurveyCompleteGridItemData
               text={data.type}
               direction={data.direction}
               numberValue={data.number}
-              key={data.type}
+              key={index}
               percentageValue={data.percentage}
             />
           ))}

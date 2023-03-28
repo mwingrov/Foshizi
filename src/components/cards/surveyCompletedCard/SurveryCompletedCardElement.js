@@ -66,7 +66,7 @@ export const SurveyCompleteGridItemData = ({
   direction = "positive" || "negetive",
 }) => {
   return (
-    <SurveyCompleteGridItem key={text}>
+    <SurveyCompleteGridItem>
       <p style={{ fontSize: "11px", padding: "10px" }}>{text}</p>
       <SurveyCompleteGridSecondItem>
         <div>

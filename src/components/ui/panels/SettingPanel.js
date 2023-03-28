@@ -11,7 +11,7 @@ import {
   PanelContainer,
 } from "@/components/layout/dashboard/DashboardElement";
 
-const SettingPanel = () => {
+const SettingPanel = ({ users }) => {
   return (
     <PanelContainer>
       <RowContainer>
@@ -28,7 +28,7 @@ const SettingPanel = () => {
         <CustomerSurveyCompletedCard width="half" />
       </RowContainer>
       <RowContainer>
-        <ColleagueCard width="full" />
+        <ColleagueCard width="full" users={users} />
         <ChatCard width="half" />
       </RowContainer>
     </PanelContainer>
