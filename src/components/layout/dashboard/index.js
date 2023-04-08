@@ -30,9 +30,9 @@ const Dashboard = ({ user, surveys, users }) => {
           <LibraryPanel />
         ) : showActivePanel === "Contacts" ? (
           <ContactPanel />
-        ) : showActivePanel === "Update to SSO" ? (
-          <UpdateSSOPanel />
-        ) : showActivePanel === "Logout" ? (
+        ) : // ) : showActivePanel === "Update to SSO" ? (
+        //   <UpdateSSOPanel />
+        showActivePanel === "Logout" ? (
           <Logout onClick={signOut()} />
         ) : null}
       </DashboardMain>
