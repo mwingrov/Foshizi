@@ -20,7 +20,7 @@ const Header = () => {
         <WelcomeText>Welcome, {name}</WelcomeText>
         <SearchBar />
         <ButtonWrapper>
-          <Button btnText="View Survey" link="create-survey" bg="primary" />
+          <Button btnText="View Survey" link="surveys" bg="primary" />
           <Button btnText="Plans/Pricing" link="plans" bg="secondary" />
         </ButtonWrapper>
         <IconWrapper>

@@ -19,7 +19,7 @@ export const authOptions = {
         myHeaders.append("Content-Type", "application/json");
 
         var raw = JSON.stringify({
-          email: "heritier@gmail.com",
+          email: "heritier1@gmail.com",
           password: "123456",
         });
 
