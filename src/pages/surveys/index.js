@@ -10,7 +10,6 @@ const DashboardPage = ({ surveys, users }) => {
     router.push("/");
   }
 
-  console.log(session);
   return (
     <Dashboard user={session?.user} surveys={surveys} users={users}></Dashboard>
   );
@@ -20,7 +19,6 @@ export default DashboardPage;
 
 export const getStaticProps = async (context) => {
   const session = await getSession(context);
-  console.log("THIS IS ", session);
   if (!session) {
     return {
       redirect: {

@@ -18,25 +18,21 @@ export const authOptions = {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
-        var raw = JSON.stringify({
-          email: "gaelk@foshizi.co.za",
-          password: "123456",
-        });
-
         var requestOptions = {
           method: "POST",
           headers: myHeaders,
-          body: raw,
+          body: JSON.stringify({
+            email,
+            password,
+          }),
           redirect: "follow",
         };
-        // let user;
         try {
           const response = await fetch(
             "https://foshizi.herokuapp.com/api/loginuser",
             requestOptions
           );
           const data = await response.json();
-          console.log(data);
 
           const { result } = data;
           const { status, message, user } = result;
