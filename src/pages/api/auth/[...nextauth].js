@@ -11,22 +11,29 @@ export const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        const { email, password } = credentials;
-        if (!email) {
-          return null;
-        }
-
         try {
+          const { email, password } = credentials;
+          if (!email) {
+            return null;
+          }
+
+          let user;
+          let statusCode;
+
+          console.log(email, password);
+
           const response = await axios.post(
             "https://foshizi.herokuapp.com/api/loginuser",
             {
-              email: "gaelk@foshizi.co.za",
-              password: "P@ssword123",
+              email,
+              password,
             }
           );
           const { result } = response.data;
-          const { status } = response;
-          let user = {
+          statusCode = response.status;
+
+          console.log(result);
+          user = {
             id: result._id,
             phone: "089 848 8484",
             name: result.firstname + " " + result.lastname,
@@ -36,13 +43,13 @@ export const authOptions = {
             role: "Frontend Software Engineer",
             accessToken: "Y9/yr3NfXj4mKcp1PxX1Bnshb3Z7X+nHXwZWVkU3Uas=",
           };
-          if (status === 200) {
+          if (statusCode === 200 && result.status !== "bad") {
             return user;
           } else {
             return null;
           }
         } catch (error) {
-          throw new Error(error.message);
+          return null;
         }
       },
     }),
