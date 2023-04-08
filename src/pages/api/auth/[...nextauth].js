@@ -1,3 +1,4 @@
+import axios from "axios";
 import NextAuth from "next-auth";
 // import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -10,49 +11,45 @@ export const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        const { email, password } = credentials;
-        if (!email) {
-          return null;
-        }
-
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-
-        var requestOptions = {
-          method: "POST",
-          headers: myHeaders,
-          body: JSON.stringify({
-            email,
-            password,
-          }),
-          redirect: "follow",
-        };
         try {
-          const response = await fetch(
-            "https://foshizi.herokuapp.com/api/loginuser",
-            requestOptions
-          );
-          const data = await response.json();
-
-          const { result } = data;
-          const { status, message, user } = result;
-          // user = {
-          //   id: result._id,
-          //   phone: "089 848 8484",
-          //   name: result.name,
-          //   email: result.email,
-          //   address: "13 Bloemendal Mowbray",
-          //   zip: "7700",
-          //   role: "Frontend Software Engineer",
-          //   accessToken: "Y9/yr3NfXj4mKcp1PxX1Bnshb3Z7X+nHXwZWVkU3Uas=",
-          // };
-          if (status === "bad") {
+          const { email, password } = credentials;
+          if (!email) {
             return null;
-          } else {
+          }
+
+          let user;
+          let statusCode;
+
+          console.log(email, password);
+
+          const response = await axios.post(
+            "https://foshizi.herokuapp.com/api/loginuser",
+            {
+              email,
+              password,
+            }
+          );
+          const { result } = response.data;
+          statusCode = response.status;
+
+          console.log(result);
+          user = {
+            id: result._id,
+            phone: "089 848 8484",
+            name: result.firstname + " " + result.lastname,
+            email: result.email,
+            address: "",
+            zip: "7700",
+            role: "Frontend Software Engineer",
+            accessToken: "Y9/yr3NfXj4mKcp1PxX1Bnshb3Z7X+nHXwZWVkU3Uas=",
+          };
+          if (statusCode === 200 && result.status !== "bad") {
             return user;
+          } else {
+            return null;
           }
         } catch (error) {
-          throw new Error(error.message);
+          return null;
         }
       },
     }),
