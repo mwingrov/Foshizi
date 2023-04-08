@@ -80,6 +80,7 @@ const Register = () => {
             label="Email"
             type="email"
             value={email}
+            required={true}
             onChange={(e) => setEmail(e.target.value)}
             errorMessage={errorMessageEmail}
           />
@@ -87,6 +88,7 @@ const Register = () => {
             label="Username"
             type="text"
             value={username}
+            required={true}
             onChange={(e) => setUsername(e.target.value)}
             errorMessage={errorMessageUsername}
           />
@@ -95,6 +97,7 @@ const Register = () => {
             type="text"
             minLength={10}
             value={number}
+            required={true}
             onChange={(e) => setNumber(e.target.value)}
             errorMessage={errorMessagePhone}
           />
@@ -102,6 +105,7 @@ const Register = () => {
             label="Password"
             type="password"
             value={password}
+            required={true}
             onChange={handlePasswordChange}
             errorMessage={errorMessagePassword}
           />
@@ -109,6 +113,7 @@ const Register = () => {
             label="Confirm Password"
             type="password"
             value={confirmPassword}
+            required={true}
             onChange={handleConfirmPasswordChange}
           />
           <Button
@@ -122,7 +127,9 @@ const Register = () => {
         <SignUpContainer>
           <Heading_H3>Existing account ? </Heading_H3>
           <p>Already a member ?</p>
-          <Link href="/">Login now</Link>
+          <Link href="/" className="login-link">
+            Login now
+          </Link>
         </SignUpContainer>
       </RegisterPanel>
     </LayoutWrapper>
