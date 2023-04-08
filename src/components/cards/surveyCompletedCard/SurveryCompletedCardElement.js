@@ -1,5 +1,9 @@
 import styled from "styled-components";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
+import {
+  buildStyles,
+  CircularProgressbarWithChildren,
+} from "react-circular-progressbar";
 
 export const ContentContainer = styled.div`
   display: flex;
@@ -66,7 +70,7 @@ export const SurveyCompleteGridItemData = ({
   direction = "positive" || "negetive",
 }) => {
   return (
-    <SurveyCompleteGridItem>
+    <SurveyCompleteGridItem key={text}>
       <p style={{ fontSize: "11px", padding: "10px" }}>{text}</p>
       <SurveyCompleteGridSecondItem>
         <div>
@@ -91,5 +95,60 @@ export const SurveyCompleteGridItemData = ({
         </div>
       </SurveyCompleteGridSecondItem>
     </SurveyCompleteGridItem>
+  );
+};
+
+export const CircularProgressbarChild = ({ text = "", value = 0 }) => {
+  return (
+    <div
+      style={{ display: "flex", flexDirection: "column", textAlign: "center" }}
+    >
+      <h1
+        style={{
+          fontSize: "22px",
+          fontWeight: "bold",
+          margin: "0",
+          color: "grey",
+        }}
+      >
+        {value}
+      </h1>
+      <p style={{ fontSize: "12px", margin: "0", padding: "0", color: "grey" }}>
+        {text}
+      </p>
+    </div>
+  );
+};
+
+export const DataHolder = ({ data = [1, 2, 3, 4] }) => {
+  const styles = {
+    trailColor: "#343a3f",
+    strokeLinecap: "butt",
+    textSize: "22px",
+    textColor: "grey",
+  };
+  return (
+    <>
+      {data.map((i, x) => (
+        <ProgressbarContainer key={x}>
+          <CircularProgressbarWithChildren
+            value={i?.questions?.map((i) => i.answers).length}
+            maxValue={1000}
+            children={
+              <CircularProgressbarChild
+                text="Answers"
+                value={i?.questions?.map((i) => i.answers).length}
+              />
+            }
+            counterClockwise={true}
+            styles={buildStyles({
+              ...styles,
+              rotation: 0.25,
+              pathColor: "#4d88ff",
+            })}
+          />
+        </ProgressbarContainer>
+      ))}
+    </>
   );
 };

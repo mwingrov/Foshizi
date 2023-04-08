@@ -1,6 +1,6 @@
 import Card from "@/components/base/card";
-import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+
 import {
   Heading,
   SurveyList,
@@ -16,21 +16,27 @@ import {
 import {
   Content,
   ContentContainer,
-  ProgressbarContainer,
+  DataHolder,
   SurveyCompleteGrid,
   SurveyCompleteGridItemData,
 } from "./SurveryCompletedCardElement";
 
 import { surveyData } from "../../../data";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+async function dataFetch() {
+  // Fetching data from an API
+  return await axios
+    .get("https://foshizi.herokuapp.com/api/getallsurveys")
+    .then((res) => {
+      return res.data;
+    })
+    .catch((e) => console.log(e));
+}
 
 const SurveyCompletedCard = () => {
-  const value = 0.66;
-  const styles = {
-    trailColor: "#343a3f",
-    strokeLinecap: "butt",
-    textSize: "22px",
-    textColor: "grey",
-  };
+  const [first, setfirst] = useState();
 
   const customerSurveyCompleted = [
     {
@@ -64,62 +70,21 @@ const SurveyCompletedCard = () => {
       status: "red",
     },
   ];
+
+  useEffect(() => {
+    return async () => {
+      const data = await dataFetch();
+      const result = data?.result;
+      setfirst(result);
+      // Perform culculations for the <SurveyCompleteGrid>
+    };
+  }, []);
+
   return (
     <Card width="full" title="Survey Complete">
       <ContentContainer>
         <Content>
-          <ProgressbarContainer>
-            <CircularProgressbar
-              value={surveyData.heighlights.lorem1.value}
-              maxValue={1000}
-              text="841"
-              counterClockwise={true}
-              styles={buildStyles({
-                ...styles,
-                rotation: 0.25,
-                pathColor: "#4d88ff",
-              })}
-            />
-          </ProgressbarContainer>
-          <ProgressbarContainer>
-            <CircularProgressbar
-              value={surveyData.heighlights.lorem2.value}
-              maxValue={800}
-              text="642"
-              counterClockwise={true}
-              styles={buildStyles({
-                ...styles,
-                rotation: 0.15,
-                pathColor: "#ff0066",
-              })}
-            />
-          </ProgressbarContainer>
-          <ProgressbarContainer>
-            <CircularProgressbar
-              value={surveyData.heighlights.lorem3.value}
-              maxValue={800}
-              text="361"
-              counterClockwise={true}
-              styles={buildStyles({
-                ...styles,
-                rotation: 0.9,
-                pathColor: "#00ff00",
-              })}
-            />
-          </ProgressbarContainer>
-          <ProgressbarContainer>
-            <CircularProgressbar
-              value={surveyData.heighlights.lorem4.value}
-              maxValue={800}
-              text="242"
-              counterClockwise={true}
-              styles={buildStyles({
-                ...styles,
-                rotation: 0.8,
-                pathColor: "#cc00ff",
-              })}
-            />
-          </ProgressbarContainer>
+          {!first ? <h1>Failed...</h1> : <DataHolder data={first} />}
         </Content>
       </ContentContainer>
       <ContentContainer>
@@ -139,7 +104,6 @@ const SurveyCompletedCard = () => {
             </SurveyContent>
           ))}
         </div>
-
         <SurveyCompleteGrid>
           {surveyData.statuses.map((data, index) => (
             <SurveyCompleteGridItemData

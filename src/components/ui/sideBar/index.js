@@ -3,7 +3,7 @@ import {
   FaReact,
   FaFolder,
   FaEnvelope,
-  FaArrowUp,
+  // FaArrowUp,
   FaPowerOff,
 } from "react-icons/fa";
 import {
@@ -41,10 +41,10 @@ const links = [
     linkName: "Contacts",
     icon: <FaEnvelope />,
   },
-  {
-    linkName: "Update to SSO",
-    icon: <FaArrowUp />,
-  },
+  // {
+  //   linkName: "Update to SSO",
+  //   icon: <FaArrowUp />,
+  // },
   {
     linkName: "Logout",
     icon: <FaPowerOff />,
