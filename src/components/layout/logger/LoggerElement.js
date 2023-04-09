@@ -28,6 +28,9 @@ export const LoginPanel = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    gap: 20px;
+  }
+  @media (min-width: 1440px) {
     gap: 200px;
     padding-left: 100px;
     padding-right: 100px;
@@ -52,12 +55,13 @@ export const ButtonContainer = styled.div`
   margin-top: 20px;
 `;
 export const SignUpContainer = styled.form`
-  display: none;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
   @media (min-width: 1024px) {
     width: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 20px;
     color: #3b3d3f;
     gap: 50px;

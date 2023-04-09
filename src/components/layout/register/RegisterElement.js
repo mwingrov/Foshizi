@@ -25,6 +25,7 @@ export const RegisterPanel = styled.div`
 export const RegisterContainer = styled.form`
   display: flex;
   flex-direction: column;
+  gap: 35px;
   @media (min-width: 1024px) {
     width: 35%;
     color: #3b3d3f;

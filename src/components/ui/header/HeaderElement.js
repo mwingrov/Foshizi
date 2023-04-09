@@ -17,7 +17,7 @@ export const HeaderWrapper = styled.div`
   @media (min-width: 768px) {
     position: static;
     flex-direction: row;
-    height: 80px;
+    height: 70px;
     gap: 5px;
     padding: 5px 10px;
     background: #2a2f34;
