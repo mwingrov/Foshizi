@@ -163,22 +163,32 @@ p {
   letter-spacing: normal;
   color: grey;
 }
-.login-link {
+
+.login-link,
+.regsiter-btn {
   text-decoration: none;
-  background: #de821c;
-  height: 35px;
-  width: 100px;
-  white-space: nowrap;
-  font-size: 14px;
   color: #fff;
-  outline: none;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.2s ease-in-out;
-  border-radius: 5px;
-  border: none;
+  font-size: 12px;
+}
+
+@media (min-width: 1024px) {
+  .login-link {
+    text-decoration: none;
+    background: #de821c;
+    height: 35px;
+    width: 100px;
+    white-space: nowrap;
+    font-size: 14px;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    border-radius: 5px;
+    border: none;
+  }
 }
 
 .login-link:hover {

@@ -98,7 +98,12 @@ const Logger = () => {
               Create an account to download tracks and use all our features such
               as playlists,share and pitch
             </Paragraph>
-            <Button link="/register" bg="primary" btnText="Register now" />
+            <Button
+              link="/register"
+              bg="primary"
+              btnText="Register now"
+              className="regsiter-btn"
+            />
           </SignUpContainer>
         </LoginPanel>
       </LayoutWrapper>

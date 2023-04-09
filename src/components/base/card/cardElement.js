@@ -33,5 +33,6 @@ export const CardContainer = styled.div`
   padding: 20px;
   @media (min-width: 768px) {
     padding: ${({ isAccountCard }) => (isAccountCard ? "50px" : "20px")};
+    // max-height: 400px;
   }
 `;
