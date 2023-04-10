@@ -14,6 +14,8 @@ import {
 } from "./DashboardElement";
 import { signOut } from "next-auth/react";
 
+import ViewSurveyPanel from "@/components/ui/panels/ViewSurveyPanel";
+
 const Dashboard = ({ user, surveys, users }) => {
   const [sidebarState, setSideBarState] = useState(true);
   const [showActivePanel, setShowActivePanel] = useState("Overview");
@@ -35,9 +37,24 @@ const Dashboard = ({ user, surveys, users }) => {
         setShowActivePanel={setShowActivePanel}
       />
       <DashboardMain>
-        <Header user={user} toggleSidebarState={toggleSidebarState} />
+        <Header user={user} toggleSidebarState={toggleSidebarState} setShowActivePanel={setShowActivePanel} />
         <MainContent onClick={closeSideBar} sideBarOpen={sidebarState}>
-          {showActivePanel === "Overview" ? (
+        {showActivePanel === "Overview" ? (
+          <SettingPanel users={users} />
+        ) : showActivePanel === "My Account" ? (
+          <AccountPanel />
+        ) : showActivePanel === "Library" ? (
+          <LibraryPanel />
+        ) : showActivePanel === "Contacts" ? (
+          <ContactPanel />
+        ) : showActivePanel === "Update to SSO" ? (
+          <UpdateSSOPanel />
+        ) : showActivePanel === "Logout" ? (
+          <Logout onClick={signOut()} />
+        ) : (
+          <ViewSurveyPanel />
+        )}
+          {/* {showActivePanel === "Overview" ? (
             <SettingPanel users={users} />
           ) : showActivePanel === "My Account" ? (
             <AccountPanel />
@@ -49,7 +66,7 @@ const Dashboard = ({ user, surveys, users }) => {
           //   <UpdateSSOPanel />
           showActivePanel === "Logout" ? (
             <Logout onClick={signOut()} />
-          ) : null}
+          ) : null} */}
         </MainContent>
       </DashboardMain>
     </DashboardWrapper>
