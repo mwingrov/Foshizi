@@ -50,7 +50,6 @@ export const SigninContainer = styled.form`
 
 export const ButtonContainer = styled.div`
   display: flex;
-  flex-direction: column;
   gap: 0.75rem;
   margin-top: 20px;
 `;

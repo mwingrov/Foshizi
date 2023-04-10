@@ -53,16 +53,8 @@ const links = [
 ];
 
 const SideBarElement = (props) => {
-  const {
-    user,
-    showActivePanel,
-    setShowActivePanel,
-    sidebarState,
-    setSideBarState,
-  } = props;
+  const { user, showActivePanel, setShowActivePanel, sidebarState } = props;
   const { push } = useRouter();
-
-  console.log(sidebarState, "element");
 
   if (!user) {
     push("/");

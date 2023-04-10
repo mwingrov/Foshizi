@@ -41,7 +41,6 @@ export const InputGroup = styled.div`
   margin-bottom: 50px;
   background: #2a2f34;
   @media (min-width: 1024px) {
-    width: 75%;
     flex-direction: row;
     justify-content: space-between;
     gap: 50px;
