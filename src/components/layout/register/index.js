@@ -1,5 +1,6 @@
 import Link from "next/link";
 import axios from "axios";
+import Select from "@/components/base/select";
 import {
   LayoutWrapper,
   RegisterPanel,
@@ -16,44 +17,70 @@ import { signIn } from "next-auth/react";
 import { Heading_H3, SignUpContainer } from "../logger/LoggerElement";
 
 const Register = () => {
-  const [username, setUsername] = useState("");
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
-  const [number, setNumber] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const router = useRouter();
   const [errorMessageEmail, setErrorMessageEamil] = useState("");
-  const [errorMessageUsername, setErrorMessageUsername] = useState("");
+  const [errorMessageFirstname, seterrorMessageFirstname] = useState("");
+  const [errorMessageLastname, seterrorMessageLastname] = useState("");
   const [errorMessagePhone, setErrorMessagePhone] = useState("");
   const [errorMessagePassword, setErrorMessagePassword] = useState("");
 
+  const handleInput = (inputName, setName) => {
+    if (!inputName) {
+      setName(`Please enter a valid ${inputName}`);
+      return false;
+    } else {
+      setName("");
+      return true;
+    }
+  };
+  const handleComparePassword = () => {
+    if (!password || !confirmPassword || password !== confirmPassword) {
+      setErrorMessagePassword("Please provide matching password");
+      return false;
+    }
+    return true;
+  };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (!email) {
-      setErrorMessageEamil("Please enter a valid email");
-      return;
-    }
-    if (!username) {
-      setErrorMessageUsername("Please enter a valid username");
-      return;
-    }
-    if (!number) {
-      setErrorMessagePhone("Please enter a valid phone number");
-    }
-    if (!password && password !== confirmPassword) {
-      setErrorMessagePassword("Passwords do not match");
+    const emailTest = handleInput(email, setErrorMessageEamil);
+    const fnameTest = handleInput(firstname, seterrorMessageFirstname);
+    const lnameTest = handleInput(lastname, seterrorMessageLastname);
+    const phoneTest = handleInput(phoneNumber, setErrorMessagePhone);
+    const pwTest = handleComparePassword();
+
+    if (!emailTest || !fnameTest || !lnameTest || !phoneTest || !pwTest) {
       return;
     } else {
       // Perform login API call here and retrieve user data
       try {
+        const newUser = {
+          email,
+          password,
+          firstname,
+          lastname,
+          bio: "",
+          physicalAddress: {
+            number: 0,
+            street: "",
+            suburb: "",
+            city: "",
+            province: "",
+            country: "",
+          },
+          linkedAccounts: [""],
+          Role: "",
+          dateOfBirth: "1960-01-01",
+          phone: phoneNumber,
+        };
         const response = await axios.post(
           "https://foshizi.herokuapp.com/api/registeruser",
-          {
-            email,
-            password,
-            fname: username,
-            lname: "",
-          }
+          newUser
         );
         const { result } = response.data;
         if (
@@ -62,7 +89,6 @@ const Register = () => {
         ) {
           setErrorMessageEamil("Email already used");
         }
-
         if (result?._id) {
           const resAuthLogin = await signIn("credentials", {
             email,
@@ -79,20 +105,6 @@ const Register = () => {
         throw new Error(error.message);
       }
     }
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-    const minLength = 8;
-    const hasSpecialChar = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
-    return password.length >= minLength && hasSpecialChar.test(password);
-  };
-
-  const handleConfirmPasswordChange = (e) => {
-    setConfirmPassword(e.target.value);
-    const minLength = 8;
-    const hasSpecialChar = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/;
-    return password.length >= minLength && hasSpecialChar.test(password);
   };
 
   return (
@@ -113,14 +125,25 @@ const Register = () => {
           </InputContainer>
           <InputContainer>
             <Input
-              label="Username"
+              label="First Name"
               type="text"
-              value={username}
+              value={firstname}
               required={true}
-              onChange={(e) => setUsername(e.target.value)}
-              errorMessage={errorMessageUsername}
+              onChange={(e) => setFirstname(e.target.value)}
+              errorMessage={errorMessageFirstname}
             />
-            <InputErrorMessage>{errorMessageUsername}</InputErrorMessage>
+            <InputErrorMessage>{errorMessageFirstname}</InputErrorMessage>
+          </InputContainer>
+          <InputContainer>
+            <Input
+              label="Last Name"
+              type="text"
+              value={lastname}
+              required={true}
+              onChange={(e) => setLastname(e.target.value)}
+              errorMessage={errorMessageLastname}
+            />
+            <InputErrorMessage>{errorMessageLastname}</InputErrorMessage>
           </InputContainer>
           <InputContainer>
             <Input
@@ -128,9 +151,9 @@ const Register = () => {
               type="text"
               minLength={10}
               maxLength={10}
-              value={number}
+              value={phoneNumber}
               required={true}
-              onChange={(e) => setNumber(e.target.value)}
+              onChange={(e) => setPhoneNumber(e.target.value)}
               errorMessage={errorMessagePhone}
             />
           </InputContainer>
@@ -140,7 +163,7 @@ const Register = () => {
               type="password"
               value={password}
               required={true}
-              onChange={handlePasswordChange}
+              onChange={(e) => setPassword(e.target.value)}
               errorMessage={errorMessagePassword}
             />
           </InputContainer>
@@ -150,9 +173,9 @@ const Register = () => {
               type="password"
               value={confirmPassword}
               required={true}
-              onChange={handleConfirmPasswordChange}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              errorMessage={errorMessagePassword}
             />
-
             <InputErrorMessage>{errorMessagePassword}</InputErrorMessage>
           </InputContainer>
 

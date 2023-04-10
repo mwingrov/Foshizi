@@ -17,7 +17,7 @@ export const RegisterPanel = styled.div`
   padding-bottom: 100px;
   @media (min-width: 1024px) {
     background: #232729;
-    height: 500px;
+    height: 600px;
     flex-direction: row;
     align-items: center;
     padding-bottom: 0;
@@ -40,5 +40,5 @@ export const InputContainer = styled.div`
   flex-direction: column;
 `;
 export const InputErrorMessage = styled.span`
-  color: red;
+  display: none;
 `;
