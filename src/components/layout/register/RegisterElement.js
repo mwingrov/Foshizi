@@ -14,11 +14,13 @@ export const RegisterPanel = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
+  padding-bottom: 100px;
   @media (min-width: 1024px) {
     background: #232729;
     height: 500px;
     flex-direction: row;
     align-items: center;
+    padding-bottom: 0;
   }
 `;
 
