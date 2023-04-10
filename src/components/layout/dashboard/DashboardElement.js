@@ -25,7 +25,12 @@ export const DashboardMain = styled.div`
     gap: 0px;
   }
 `;
-
+export const MainContent = styled.div`
+  opacity: ${({ sideBarOpen }) => (sideBarOpen ? 0.25 : 1)};
+  @media (min-width: 1024px) {
+    opacity: 1;
+  }
+`;
 export const PanelContainer = styled.section`
   padding: 10px;
   @media (min-width: 768px) {

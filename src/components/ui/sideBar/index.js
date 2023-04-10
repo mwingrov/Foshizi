@@ -13,6 +13,7 @@ import {
   ProfileWrapper,
   UserProfile,
   LogoWrapperSideBar,
+  Overlay,
 } from "./SideBarElement";
 import IconSideLink from "@/components/base/iconSideLink";
 import Logo from "@/components/base/logo";
@@ -52,49 +53,61 @@ const links = [
 ];
 
 const SideBarElement = (props) => {
-  const { user, showActivePanel, setShowActivePanel } = props;
+  const {
+    user,
+    showActivePanel,
+    setShowActivePanel,
+    sidebarState,
+    setSideBarState,
+  } = props;
   const { push } = useRouter();
+
+  console.log(sidebarState, "element");
 
   if (!user) {
     push("/");
   }
 
   return (
-    <DashboardSideBar>
-      <LogoWrapperSideBar>
-        <Logo dashboard="true" size={100} />
-      </LogoWrapperSideBar>
-      <ProfileWrapper>
-        <IconText
-          image={user?.image ? user.image : profileImage}
-          title={user?.name}
-          subtitle={user?.email}
-          size={"200"}
-        />
-      </ProfileWrapper>
-      <UserProfile>
-        <ImageContainer big="100">
-          <ImageElement
-            src={user?.image ? user.image : profileImage}
-            width="200"
-            height="200"
-            alt={user?.name}
-          />
-        </ImageContainer>
-      </UserProfile>
-      <Wrapper>
-        <Title>Customize</Title>
-        {links.map(({ linkName, icon }, index) => (
-          <div onClick={() => setShowActivePanel(linkName)} key={index}>
-            <IconSideLink
-              linkName={linkName}
-              linkIcon={icon}
-              showActivePanel={showActivePanel === linkName}
+    <>
+      {sidebarState ? (
+        <DashboardSideBar>
+          <LogoWrapperSideBar>
+            <Logo dashboard="true" size={100} />
+          </LogoWrapperSideBar>
+          <ProfileWrapper>
+            <IconText
+              image={user?.image ? user.image : profileImage}
+              title={user?.name}
+              subtitle={user?.email}
+              size={"200"}
             />
-          </div>
-        ))}
-      </Wrapper>
-    </DashboardSideBar>
+          </ProfileWrapper>
+          <UserProfile>
+            <ImageContainer big="100">
+              <ImageElement
+                src={user?.image ? user.image : profileImage}
+                width="200"
+                height="200"
+                alt={user?.name}
+              />
+            </ImageContainer>
+          </UserProfile>
+          <Wrapper>
+            <Title>Customize</Title>
+            {links.map(({ linkName, icon }, index) => (
+              <div onClick={() => setShowActivePanel(linkName)} key={index}>
+                <IconSideLink
+                  linkName={linkName}
+                  linkIcon={icon}
+                  showActivePanel={showActivePanel === linkName}
+                />
+              </div>
+            ))}
+          </Wrapper>
+        </DashboardSideBar>
+      ) : null}
+    </>
   );
 };
 
