@@ -19,7 +19,11 @@ const Dashboard = ({ user, surveys, users }) => {
   const [showActivePanel, setShowActivePanel] = useState("Overview");
 
   const toggleSidebarState = () => setSideBarState(!sidebarState);
-  const closeSideBar = () => setSideBarState(false);
+  const closeSideBar = () => {
+    if (screen.width <= 768) {
+      setSideBarState(false);
+    }
+  };
 
   return (
     <DashboardWrapper>

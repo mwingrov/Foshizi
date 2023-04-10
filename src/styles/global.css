@@ -197,3 +197,9 @@ p {
   transition: all 0.2s ease-in-out;
   opacity: 0.75;
 }
+
+@media (min-width: 1024px) {
+  .fa-bar-element {
+    display: none !important;
+  }
+}
