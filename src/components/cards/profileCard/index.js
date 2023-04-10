@@ -4,8 +4,44 @@ import { IconElement } from "@/components/ui/header/HeaderElement";
 import { ProfileContainer, ProfileItem } from "./ProfileCardElement";
 import { useSession } from "next-auth/react";
 
-const ProfileCard = ({ width }) => {
+const ProfileCard = ({ width, tab }) => {
   const { data: session } = useSession();
+
+  if (tab === "library") {
+    return (
+      <Card width={width} title="Profile">
+        <h2 style={{ marginBottom: "5%", color: "lightblue" }}>Bio</h2>
+        <p style={{ padding: "4% 2%" }}>
+          Lorem ipsum dolor sit amet,
+          consectetuer adipiscing elit, sed
+          diam nonummy nibh euismod
+          tincidunt ut laoreet dolore magna
+          aliquam erat volutpat
+        </p>
+
+        <p style={{ padding: "4% 2%" }}>
+          Ut wisi enim ad minim veniam,
+          quis nos adipiscing elit, sed diam
+          nonummy nibh euismod.Lorem
+          ipsum dipiscing elit, sed diam
+          nonummy nibh euismod tincidunt
+          ut laoreet dolore magna aliquam
+          erat volutpat.  Ut wisi enim ad
+          minim veniam, quis nos adipiscing
+          elit, sed diam nonummy nibh
+          euismod
+        </p>
+        <p style={{ padding: "4% 2%" }}>
+          Ut wisi enim ad minim veniam,
+          quis nos adipiscing nt ut laoreet
+          dolore magna aliquam erat
+          volutpat.  Ut wisi enim ad minim
+          veniam, quis nos adipiscing elit,
+          sed diam nonummy nibh euismod
+        </p>
+      </Card>
+    );
+  }
 
   if (session) {
     const { email, number } = session.user;
@@ -40,8 +76,7 @@ const ProfileCard = ({ width }) => {
             <p>5a Margueritte Street, La Rochelle, 2090</p>
           </ProfileItem>
         </ProfileContainer>
-      </Card>
-    );
+      </Card>)
   }
 };
 
