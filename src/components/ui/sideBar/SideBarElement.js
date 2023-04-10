@@ -3,10 +3,11 @@ import Image from "next/image";
 
 export const DashboardSideBar = styled.div`
   width: 20%;
+  height: 100%;
   position: fixed;
   top: 0;
   bottom: 0;
-  z-index: 45;
+  z-index: 150;
   background: #2a2f34;
   display: flex;
   flex-direction: column;
@@ -14,7 +15,17 @@ export const DashboardSideBar = styled.div`
   padding: 10px;
   border-radius: 50px;
 
+  @media (min-width: 768px) {
+    width: 35%;
+    background: #2a2f34;
+    border: 1px solid#2A2F34;
+    align-items: start;
+    padding: 10px;
+    border-radius: 0px;
+  }
+
   @media (min-width: 1024px) {
+    width: 20%;
     position: static;
     background: #2a2f34;
     border: 1px solid#2A2F34;

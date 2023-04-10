@@ -10,7 +10,7 @@ import {
 import { FaEnvelope, FaBell, FaBars, FaSearch } from "react-icons/fa";
 import { useSession } from "next-auth/react";
 
-const Header = () => {
+const Header = ({ toggleSidebarState }) => {
   const { data: session } = useSession();
 
   if (session) {
@@ -34,7 +34,7 @@ const Header = () => {
             <FaBell />
           </IconElement>
           <IconElement>
-            <FaBars />
+            <FaBars onClick={toggleSidebarState} />
           </IconElement>
         </IconWrapper>
       </HeaderWrapper>

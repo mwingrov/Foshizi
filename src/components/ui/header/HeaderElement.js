@@ -4,6 +4,7 @@ export const HeaderWrapper = styled.div`
   position: fixed;
   width: 100%;
   height: 55px;
+  z-index: 100;
   padding-top: 10px;
   display: flex;
   flex-direction: column;
