@@ -33,7 +33,7 @@ const Header = ({ toggleSidebarState }) => {
           <IconElement bg="red">
             <FaBell />
           </IconElement>
-          <IconElement>
+          <IconElement className="fa-bar-element">
             <FaBars onClick={toggleSidebarState} />
           </IconElement>
         </IconWrapper>
