@@ -7,7 +7,7 @@ export const DashboardSideBar = styled.div`
   position: fixed;
   top: 0;
   bottom: 0;
-  z-index: 45;
+  z-index: 150;
   background: #2a2f34;
   display: flex;
   flex-direction: column;
