@@ -62,6 +62,7 @@ const ViewSurveyPanel = () => {
         const data = await rawData.json();
         setSurveysData(data.result);
         setcurrentSurvey(data.result[1]._id);
+        console.log(data);
       } catch (e) {
         alert(e);
       }
