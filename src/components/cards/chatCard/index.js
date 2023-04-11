@@ -17,7 +17,8 @@ import profileImage from "../../../../assets/images/profile.png";
 const ChatCard = () => {
   return (
     <Card width="half" title="Chat">
-      <ChatSender>
+      Feature coming soon...
+      {/* <ChatSender>
         <ImageContainer>
           <ImageElement
             src={profileImage}
@@ -75,7 +76,7 @@ const ChatCard = () => {
           <Pointer></Pointer>
           <Chat>Hello world from nowhere.</Chat>
         </ChatContent>
-      </ChatSender>
+      </ChatSender> */}
     </Card>
   );
 };

@@ -18,7 +18,10 @@ import { IconElement } from "@/components/ui/header/HeaderElement";
 const LinkedAccountCard = () => {
   return (
     <Card width="full" title="Linked Accounts">
-      <LinkedAccountContainer>
+      <LinkedItem>
+          Coming soon...
+        </LinkedItem>
+      {/* <LinkedAccountContainer>
         <LinkedItem>
           <IconElement size="md" bg="red">
             <FaEnvelope />
@@ -73,7 +76,7 @@ const LinkedAccountCard = () => {
             <FaPenSquare />
           </LinkNoteIcon>
         </LinkedItem>
-      </LinkedAccountContainer>
+      </LinkedAccountContainer> */}
     </Card>
   );
 };
