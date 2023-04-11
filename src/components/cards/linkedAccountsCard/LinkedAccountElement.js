@@ -5,12 +5,6 @@ export const LinkedAccountContainer = styled.div`
   padding: 20px;
   column-gap: 10px;
   row-gap: 30px;
-  @media (min-width: 768px) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 50px;
-    row-gap: 30px;
-  }
 `;
 
 export const LinkNoteIcon = styled.span`
@@ -19,6 +13,7 @@ export const LinkNoteIcon = styled.span`
 `;
 
 export const LinkedItem = styled.ul`
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 10px;
