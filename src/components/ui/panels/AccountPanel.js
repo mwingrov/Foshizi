@@ -95,13 +95,10 @@ const AccountPanel = () => {
       const res = await axios.post(
         "https://foshizi.herokuapp.com/api/deleteuser",
         {
-          id: "6435172dfbfaa51308744c78",
+          id: "64352592fbfaa51308744c79",
         }
       );
-
-      if (res.message === "success") {
-        signOut();
-      }
+      signOut();
     } catch (error) {
       throw new Error("Something went wrong");
     }

@@ -20,8 +20,6 @@ export const authOptions = {
           let user;
           let statusCode;
 
-          console.log(email, password);
-
           const response = await axios.post(
             "https://foshizi.herokuapp.com/api/loginuser",
             {
@@ -32,7 +30,6 @@ export const authOptions = {
           const { result } = response.data;
           statusCode = response.status;
 
-          console.log(result);
           user = {
             id: result._id,
             phone: "089 848 8484",
