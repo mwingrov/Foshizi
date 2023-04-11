@@ -30,35 +30,63 @@ const country = ["South Africa"];
 const AccountPanel = () => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
   const [phone, setphone] = useState("");
+
   const [number, setStreetNum] = useState(0);
   const [street, setStreet] = useState("");
-  const [surburb, setSurburb] = useState("");
+  const [suburb, setSuburb] = useState("");
   const [city, setCity] = useState("");
   const [province, setProvince] = useState("");
   const [countries, setCountry] = useState("South Africa");
 
-  const updateUserInfo = async () => {
-    const fields = [{ firstname }, { lastname }, { email }, { phone }];
+  const requestFn = async (field, value) => {
+    try {
+      await axios.post("https://foshizi.herokuapp.com/api/updateuser", {
+        user_id: "6435172dfbfaa51308744c78",
+        field,
+        value,
+      });
+    } catch (error) {
+      throw new Error("Something went wrong with your " + field + " update");
+    }
+  };
 
+  const updateUserInfo = async () => {
+    const fields = [{ firstname }, { lastname }, { phone }];
     for (let i = 0; i <= fields.length; i++) {
       if (!fields[i]) return false;
       else {
-        try {
-          const res = await axios.post(
-            "https://foshizi.herokuapp.com/api/updateuser",
-            {
-              user_id: "64343f7483bc1842dea8dca3",
-              field: fields[i],
-              value: fields[i],
-            }
-          );
-          console.log(res);
-        } catch (error) {
-          console.log(error);
+        if (Object.keys(fields[i])[0] === "firstname" && firstname) {
+          requestFn(Object.keys(fields[i])[0], firstname);
         }
+        if (Object.keys(fields[i])[0] === "lastname" && lastname) {
+          requestFn(Object.keys(fields[i])[0], lastname);
+        }
+        if (Object.keys(fields[i])[0] === "phone" && phone) {
+          requestFn(Object.keys(fields[i])[0], phone);
+        }
+
+        updateAddress();
       }
+    }
+  };
+
+  const updateAddress = () => {
+    if (number) {
+      requestFn("physicalAddress.number", parseInt(number));
+    }
+    if (street) {
+      requestFn("physicalAddress.street", street);
+    }
+    if (suburb) {
+      requestFn("physicalAddress.suburb", suburb);
+    }
+    if (city) {
+      requestFn("physicalAddress.city", city);
+    }
+    if (country) {
+      requestFn("physicalAddress.country", country[0]);
     }
   };
 
@@ -67,7 +95,7 @@ const AccountPanel = () => {
       const res = await axios.post(
         "https://foshizi.herokuapp.com/api/deleteuser",
         {
-          id: "643461ce3e56f13c11300c40",
+          id: "6435172dfbfaa51308744c78",
         }
       );
 
@@ -75,7 +103,7 @@ const AccountPanel = () => {
         signOut();
       }
     } catch (error) {
-      console.log(error);
+      throw new Error("Something went wrong");
     }
   };
 
@@ -98,15 +126,17 @@ const AccountPanel = () => {
             />
           </InputGroup>
           <InputGroup>
-            <Input
+            {/* <Input
               label="Email Address"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-            />
+            /> */}
             <Input
               label="Phone Number"
               type="text"
+              minLength={10}
+              maxLength={10}
               value={phone}
               onChange={(e) => setphone(e.target.value)}
             />
@@ -125,10 +155,10 @@ const AccountPanel = () => {
               onChange={(e) => setStreet(e.target.value)}
             />
             <Input
-              label="Surburb"
+              label="suburb"
               type="text"
-              value={surburb}
-              onChange={(e) => setSurburb(e.target.value)}
+              value={suburb}
+              onChange={(e) => setSuburb(e.target.value)}
             />
             <Input
               label="City"
@@ -155,7 +185,7 @@ const AccountPanel = () => {
               btnText="Update Account"
               link="/"
               bg="primary"
-              isBtn={false}
+              isBtn={true}
               onClick={updateUserInfo}
             />
             <Button
@@ -163,7 +193,7 @@ const AccountPanel = () => {
               btnText="Delete Account"
               link="/"
               bg="danger"
-              isBtn={false}
+              isBtn={true}
               onClick={deleteAccount}
             />
           </ButtonContainer>
