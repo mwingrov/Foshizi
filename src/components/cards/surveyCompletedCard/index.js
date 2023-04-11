@@ -32,7 +32,9 @@ async function dataFetch() {
     .then((res) => {
       return res.data;
     })
-    .catch((e) => console.log(e));
+    .catch((e) => {
+      throw new Error("something went wrong");
+    });
 }
 
 const SurveyCompletedCard = () => {

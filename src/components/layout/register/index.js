@@ -87,7 +87,7 @@ const Register = () => {
           result.status === "bad" &&
           result.message === "Email already in use"
         ) {
-          setErrorMessageEamil("Email already used");
+          setErrorMessageEamil("Email already used, please login");
         }
         if (result?._id) {
           const resAuthLogin = await signIn("credentials", {
