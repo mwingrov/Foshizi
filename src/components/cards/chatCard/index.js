@@ -75,7 +75,8 @@ const ChatCard = () => {
           <Pointer></Pointer>
           <Chat>Hello world from nowhere.</Chat>
         </ChatContent>
-      </ChatSender> */}
+      </ChatSender>{" "}
+      *
     </Card>
   );
 };
