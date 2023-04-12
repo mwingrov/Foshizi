@@ -1,10 +1,19 @@
-import { CardHeading, CardWrapper, CardContainer } from "./cardElement";
+import ComingSoonBadge from "../comingSoon";
+import {
+  CardHeading,
+  CardWrapper,
+  CardContainer,
+  CardHeadingWrapper,
+} from "./cardElement";
 
 const Card = (props) => {
-  const { width, title, isAccountCard } = props;
+  const { width, title, isAccountCard, comingSoon } = props;
   return (
     <CardWrapper width={width}>
-      <CardHeading>{title}</CardHeading>
+      <CardHeadingWrapper>
+        <CardHeading>{title}</CardHeading>
+        {comingSoon && <ComingSoonBadge />}
+      </CardHeadingWrapper>
       <CardContainer isAccountCard={isAccountCard}>
         {props.children}
       </CardContainer>

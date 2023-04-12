@@ -17,11 +17,8 @@ import { IconElement } from "@/components/ui/header/HeaderElement";
 
 const LinkedAccountCard = () => {
   return (
-    <Card width="full" title="Linked Accounts">
-      <LinkedItem>
-          Coming soon...
-        </LinkedItem>
-      {/* <LinkedAccountContainer>
+    <Card width="full" title="Linked Accounts" comingSoon={true}>
+      <LinkedAccountContainer>
         <LinkedItem>
           <IconElement size="md" bg="red">
             <FaEnvelope />

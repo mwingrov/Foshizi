@@ -49,9 +49,18 @@ export const SigninContainer = styled.form`
 `;
 
 export const ButtonContainer = styled.div`
+  width: 100%;
   display: flex;
+  justify-content: center;
   gap: 0.75rem;
   margin-top: 20px;
+
+  flex-direction: column;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: ${({ content }) =>
+      content === "center" ? "center" : "flex-start"};
+  }
 `;
 export const SignUpContainer = styled.form`
   margin-top: 80px;

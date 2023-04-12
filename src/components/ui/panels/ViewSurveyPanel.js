@@ -178,7 +178,12 @@ const ViewSurveyPanel = () => {
         ))}
       </div>
 
-      <div style={{ marginTop: "40px", width: "100%" }}>
+      <div
+        style={{
+          marginTop: "40px",
+          width: "100%",
+        }}
+      >
         <h1
           style={{
             fontSize: "22px",
@@ -189,7 +194,7 @@ const ViewSurveyPanel = () => {
           Overview
         </h1>
 
-        <div style={{ marginTop: "20px" }}>
+        <div style={{ marginTop: "20px", height: "300px", overflow: "auto" }}>
           <Table data={users} />
         </div>
       </div>

@@ -64,24 +64,6 @@ const Table = ({ data }) => {
             />
           ))
         )}
-        {/* <TableRow
-          name="Sara Johan"
-          email="sarajohan@gmail.com"
-          location="Limpopo"
-          time="7:15"
-        />
-        <TableRow
-          name="Sara Johan"
-          email="sarajohan@gmail.com"
-          location="Gauteng"
-          time="7:15"
-        />
-        <TableRow
-          name="Sara Johan"
-          email="sarajohan@gmail.com"
-          location="Cape Town"
-          time="7:15"
-        /> */}
       </tbody>
     </table>
   );

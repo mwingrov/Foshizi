@@ -16,9 +16,8 @@ import profileImage from "../../../../assets/images/profile.png";
 
 const ChatCard = () => {
   return (
-    <Card width="half" title="Chat">
-      Feature coming soon...
-      {/* <ChatSender>
+    <Card width="half" title="Chat" comingSoon={true}>
+      <ChatSender>
         <ImageContainer>
           <ImageElement
             src={profileImage}

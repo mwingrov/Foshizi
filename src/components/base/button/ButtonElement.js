@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Link from "next/link";
 
 export const ButtonBtn = styled.button`
+  width: 100%;
   background: ${({ bg }) =>
     bg === "primary"
       ? "#de821c"

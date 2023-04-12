@@ -10,8 +10,16 @@ const DashboardPage = ({ surveys, users }) => {
     router.push("/");
   }
 
+  const personalDetails = users.filter(
+    (detail) => detail.email === session?.user.email
+  )[0];
+
   return (
-    <Dashboard user={session?.user} surveys={surveys} users={users}></Dashboard>
+    <Dashboard
+      user={personalDetails}
+      surveys={surveys}
+      users={users}
+    ></Dashboard>
   );
 };
 
@@ -32,10 +40,10 @@ export const getServerSideProps = async (context) => {
   );
   const surveys = await surveyJSON.json();
 
-  const usersJSON = await fetch(
+  const usersData = await fetch(
     "https://foshizi.herokuapp.com/api/getallusers"
   );
-  const { data: users } = await usersJSON.json();
+  const { data: users } = await usersData.json();
 
   return {
     props: {

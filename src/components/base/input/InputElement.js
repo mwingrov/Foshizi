@@ -8,6 +8,7 @@ export const FormInputGroup = styled.div`
   flex-direction: column;
   background-color: #3b3d3f;
   margin-top: 5px;
+  border-radius: 4px;
 `;
 
 export const FormLabel = styled.label`
@@ -23,12 +24,13 @@ export const FormLabel = styled.label`
 export const FormInput = styled.input`
   position: absolute;
   border: none;
-  width: calc(100% - 20px);
+  width: calc(100% - 10px);
   height: 100%;
   outline: none;
   background: #343a3f;
   padding-top: 20px;
-  padding-left: 15px;
+  padding-left: 8px;
+  border-radius: 4px;
   font-size: 14px;
   color: #fff;
   border: ${({ errorMessage }) =>
