@@ -64,7 +64,7 @@ const RecentActivitiesCard = ({ width }) => {
   };
   return (
     <>
-      <Card width={width} title="Recent Activities">
+      <Card width={width} title="Recent Activities" comingSoon={true}>
         <Activity>
           <RecenActivityHeading>Today</RecenActivityHeading>
           <ActivitiesList>

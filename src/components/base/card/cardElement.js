@@ -11,9 +11,21 @@ export const CardWrapper = styled.div`
   @media (min-width: 1024px) {
     margin-top: 0px;
     width: ${({ width }) =>
-    width === "full" ? "100%" : width === "half" ? "50%" : width === "third" ? "75%" : "30%"};
+      width === "full"
+        ? "100%"
+        : width === "half"
+        ? "50%"
+        : width === "third"
+        ? "75%"
+        : "30%"};
     gap: 20px;
   }
+`;
+
+export const CardHeadingWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
 `;
 export const CardHeading = styled.h3`
   font-size: 22px;

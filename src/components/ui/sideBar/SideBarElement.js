@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
+import Link from "next/link";
 
 export const DashboardSideBar = styled.div`
   width: 20%;
@@ -62,7 +63,8 @@ export const UserProfile = styled.div`
     display: none;
   }
 `;
-export const LogoWrapperSideBar = styled.div`
+export const LogoWrapperSideBar = styled(Link)`
+  text-decoration: none;
   display: none;
   @media (min-width: 678px) {
     display: block;

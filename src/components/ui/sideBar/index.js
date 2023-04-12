@@ -61,7 +61,7 @@ const SideBarElement = (props) => {
     <>
       {sidebarState ? (
         <DashboardSideBar>
-          <LogoWrapperSideBar>
+          <LogoWrapperSideBar href="/dashboard">
             <Logo dashboard="true" size={100} />
           </LogoWrapperSideBar>
           <ProfileWrapper>

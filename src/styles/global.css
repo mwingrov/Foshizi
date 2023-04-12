@@ -251,7 +251,7 @@ p {
 .planning-page {
   background-image: url("../../assets/images/ComingSoonSmall.jpg");
   background-repeat: no-repeat;
-  object-fit: contain;
+  background-size: cover;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -262,7 +262,7 @@ p {
   .planning-page {
     background-image: url("../../assets/images/ComingSoonMedium.jpg");
     background-repeat: no-repeat;
-    object-fit: cover;
+    background-size: cover;
     height: 100vh;
     width: 100vw;
   }
@@ -271,7 +271,7 @@ p {
   .planning-page {
     background-image: url("../../assets/images/ComingSoon.jpg");
     background-repeat: no-repeat;
-    object-fit: cover;
+    background-size: cover;
     height: 100vh;
     width: 100vw;
   }

@@ -160,7 +160,12 @@ const AccountPanel = ({ user }) => {
         </Card>
       </RowContainer>
       <RowContainer>
-        <Card width="full" title="General Preference" isAccountCard={true}>
+        <Card
+          width="full"
+          title="General Preference"
+          isAccountCard={true}
+          comingSoon={true}
+        >
           <InputGroup>
             <Select label="Language" options={languagesOptions} />
             <Input label="Username " type="text" />
