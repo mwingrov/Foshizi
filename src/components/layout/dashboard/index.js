@@ -37,23 +37,27 @@ const Dashboard = ({ user, surveys, users }) => {
         setShowActivePanel={setShowActivePanel}
       />
       <DashboardMain>
-        <Header user={user} toggleSidebarState={toggleSidebarState} setShowActivePanel={setShowActivePanel} />
+        <Header
+          user={user}
+          toggleSidebarState={toggleSidebarState}
+          setShowActivePanel={setShowActivePanel}
+        />
         <MainContent onClick={closeSideBar} sideBarOpen={sidebarState}>
-        {showActivePanel === "Overview" ? (
-          <SettingPanel users={users} />
-        ) : showActivePanel === "My Account" ? (
-          <AccountPanel />
-        ) : showActivePanel === "Library" ? (
-          <LibraryPanel />
-        ) : showActivePanel === "Contacts" ? (
-          <ContactPanel />
-        ) : showActivePanel === "Update to SSO" ? (
-          <UpdateSSOPanel />
-        ) : showActivePanel === "Logout" ? (
-          <Logout onClick={signOut()} />
-        ) : (
-          <ViewSurveyPanel />
-        )}
+          {showActivePanel === "Overview" ? (
+            <SettingPanel users={users} />
+          ) : showActivePanel === "My Account" ? (
+            <AccountPanel user={user} />
+          ) : showActivePanel === "Library" ? (
+            <LibraryPanel />
+          ) : showActivePanel === "Contacts" ? (
+            <ContactPanel />
+          ) : showActivePanel === "Update to SSO" ? (
+            <UpdateSSOPanel />
+          ) : showActivePanel === "Logout" ? (
+            <Logout onClick={signOut()} />
+          ) : (
+            <ViewSurveyPanel />
+          )}
           {/* {showActivePanel === "Overview" ? (
             <SettingPanel users={users} />
           ) : showActivePanel === "My Account" ? (

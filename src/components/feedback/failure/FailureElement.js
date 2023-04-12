@@ -7,8 +7,8 @@ export const FailureContainer = styled.div`
   gap: 5px;
   padding-left: 2px;
   align-items: center;
-  width: 450px;
-  height: 60px;
+  width: 330px;
+  height: 80px;
   background: #fff;
   border-radius: 5px;
   border-left: 7px solid #fc100d;
@@ -16,6 +16,10 @@ export const FailureContainer = styled.div`
   -webkit-box-shadow: -5px -1px 15px 8px rgba(0, 0, 0, 0.28);
   -moz-box-shadow: -5px -1px 15px 8px rgba(0, 0, 0, 0.28);
   font-family: "Poppins", sans-serif;
+  @media (min-width: 768px) {
+    width: 450px;
+    height: 60px;
+  }
 `;
 export const FailureIcon = styled(FaTimesCircle)`
   width: 35px;

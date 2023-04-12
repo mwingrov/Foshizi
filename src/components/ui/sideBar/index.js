@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   FaWrench,
   FaReact,
@@ -13,7 +14,6 @@ import {
   ProfileWrapper,
   UserProfile,
   LogoWrapperSideBar,
-  Overlay,
 } from "./SideBarElement";
 import IconSideLink from "@/components/base/iconSideLink";
 import Logo from "@/components/base/logo";
@@ -24,6 +24,7 @@ import {
   ImageContainer,
   ImageElement,
 } from "@/components/base/iconText/IconTextElement";
+import React from "react";
 
 const links = [
   {
@@ -54,11 +55,7 @@ const links = [
 
 const SideBarElement = (props) => {
   const { user, showActivePanel, setShowActivePanel, sidebarState } = props;
-  const { push } = useRouter();
-
-  if (!user) {
-    push("/");
-  }
+  const router = useRouter();
 
   return (
     <>
@@ -70,7 +67,7 @@ const SideBarElement = (props) => {
           <ProfileWrapper>
             <IconText
               image={user?.image ? user.image : profileImage}
-              title={user?.name}
+              title={user?.firstname + " " + user?.lastname}
               subtitle={user?.email}
               size={"200"}
             />
@@ -81,7 +78,7 @@ const SideBarElement = (props) => {
                 src={user?.image ? user.image : profileImage}
                 width="200"
                 height="200"
-                alt={user?.name}
+                alt={user?.firstname}
               />
             </ImageContainer>
           </UserProfile>

@@ -34,6 +34,8 @@ export const authOptions = {
             id: result._id,
             phone: "089 848 8484",
             name: result.firstname + " " + result.lastname,
+            firstname: result.firstname,
+            lastname: result.lastname,
             email: result.email,
             address: "",
             zip: "7700",

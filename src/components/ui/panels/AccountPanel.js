@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { signOut } from "next-auth/react";
 import {
   RowContainer,
   PanelContainer,
@@ -12,6 +11,7 @@ import { languagesOptions } from "@/data";
 import Select from "@/components/base/select";
 import axios from "axios";
 import { ButtonContainer } from "@/components/layout/logger/LoggerElement";
+import DeleteAccountModal from "../modals/deleteAccount";
 
 const provinces = [
   "Select Province",
@@ -27,23 +27,31 @@ const provinces = [
 ];
 const country = ["South Africa"];
 
-const AccountPanel = () => {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  // const [email, setEmail] = useState("");
-  const [phone, setphone] = useState("");
+const AccountPanel = ({ user }) => {
+  const userId = user._id;
 
-  const [number, setStreetNum] = useState(0);
-  const [street, setStreet] = useState("");
-  const [suburb, setSuburb] = useState("");
-  const [city, setCity] = useState("");
+  const [firstname, setFirstname] = useState(user.firstname);
+  const [lastname, setLastname] = useState(user.lastname);
+  const [phone, setphone] = useState(user.phone);
+
+  const [number, setStreetNum] = useState(user.physicalAddress.number);
+  const [street, setStreet] = useState(user.physicalAddress.street);
+  const [suburb, setSuburb] = useState(user.physicalAddress.suburb);
+  const [city, setCity] = useState(user.physicalAddress.city);
   const [province, setProvince] = useState("");
   const [countries, setCountry] = useState("South Africa");
+
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorUser, setErrorUser] = useState("");
+
+  const [deleteAccountModal, setDeleteAccount] = useState(false);
 
   const requestFn = async (field, value) => {
     try {
       await axios.post("https://foshizi.herokuapp.com/api/updateuser", {
-        user_id: "6435172dfbfaa51308744c78",
+        user_id: userId,
         field,
         value,
       });
@@ -90,20 +98,7 @@ const AccountPanel = () => {
     }
   };
 
-  const deleteAccount = async () => {
-    try {
-      const res = await axios.post(
-        "https://foshizi.herokuapp.com/api/deleteuser",
-        {
-          id: "64352592fbfaa51308744c79",
-        }
-      );
-      signOut();
-    } catch (error) {
-      throw new Error("Something went wrong");
-    }
-  };
-
+  const cancelDeletion = () => setDeleteAccount(false);
   return (
     <PanelContainer>
       <RowContainer>
@@ -123,12 +118,6 @@ const AccountPanel = () => {
             />
           </InputGroup>
           <InputGroup>
-            {/* <Input
-              label="Email Address"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            /> */}
             <Input
               label="Phone Number"
               type="text"
@@ -191,11 +180,14 @@ const AccountPanel = () => {
               link="/"
               bg="danger"
               isBtn={true}
-              onClick={deleteAccount}
+              onClick={() => setDeleteAccount(true)}
             />
           </ButtonContainer>
         </Card>
       </RowContainer>
+      {deleteAccountModal && (
+        <DeleteAccountModal userId={userId} cancelDeletion={cancelDeletion} />
+      )}
     </PanelContainer>
   );
 };

@@ -165,7 +165,8 @@ p {
 }
 
 .login-link,
-.regsiter-btn {
+.regsiter-btn,
+.redirect-btn {
   text-decoration: none;
   color: #fff;
   font-size: 14px;
@@ -244,5 +245,34 @@ p {
   }
   50% {
     transform: translateY(-10px);
+  }
+}
+
+.planning-page {
+  background-image: url("../../assets/images/ComingSoonSmall.jpg");
+  background-repeat: no-repeat;
+  object-fit: contain;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .planning-page {
+    background-image: url("../../assets/images/ComingSoonMedium.jpg");
+    background-repeat: no-repeat;
+    object-fit: cover;
+    height: 100vh;
+    width: 100vw;
+  }
+}
+@media (min-width: 1024px) {
+  .planning-page {
+    background-image: url("../../assets/images/ComingSoon.jpg");
+    background-repeat: no-repeat;
+    object-fit: cover;
+    height: 100vh;
+    width: 100vw;
   }
 }
