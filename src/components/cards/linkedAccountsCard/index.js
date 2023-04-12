@@ -73,7 +73,7 @@ const LinkedAccountCard = () => {
             <FaPenSquare />
           </LinkNoteIcon>
         </LinkedItem>
-      </LinkedAccountContainer>
+      </LinkedAccountContainer> */}
     </Card>
   );
 };

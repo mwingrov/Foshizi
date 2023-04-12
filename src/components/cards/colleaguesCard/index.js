@@ -28,7 +28,8 @@ const ColleagueCard = ({ users, width }) => {
   ];
   return (
     <Card width={width} title="Colleagues">
-      <ColleagueContainer>
+      Feature coming soon...
+      {/* <ColleagueContainer>
         {users.map(({ firstname, lastname, email }, index) => (
           <ColleagueItem key={index}>
             <IconText
@@ -39,7 +40,7 @@ const ColleagueCard = ({ users, width }) => {
             />
           </ColleagueItem>
         ))}
-      </ColleagueContainer>
+      </ColleagueContainer> */}
     </Card>
   );
 };
