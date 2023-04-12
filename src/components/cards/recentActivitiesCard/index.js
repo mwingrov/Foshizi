@@ -93,9 +93,8 @@ const RecentActivitiesCard = ({ width }) => {
           <TextAreaContainer rows={15}></TextAreaContainer>
         </PreviousActivity>
       </Card>
-      <Card width="" title="Details">
-        Coming soon...
-        {/* <IconWrapper>
+      <Card width="" title="Details" comingSoon={true}>
+        <IconWrapper>
           <DetailsHeading>
             <IconElement bg="grey">
               <FaEnvelope />
@@ -128,7 +127,7 @@ const RecentActivitiesCard = ({ width }) => {
               <DetailItem>{details[key]}</DetailItem>
             </Details>
           ))}
-        </DetailsContainer> */}
+        </DetailsContainer>
       </Card>
     </>
   );
