@@ -15,6 +15,10 @@ import Logo from "@/components/base/logo";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { signIn, useSession } from "next-auth/react";
+import { FeedbackWrapper } from "../register/RegisterElement";
+import Succes from "@/components/feedback/success";
+import Loading from "@/components/feedback/loading";
+import Failure from "@/components/feedback/failure";
 
 const Logger = () => {
   const router = useRouter();
@@ -22,6 +26,11 @@ const Logger = () => {
   const [password, setPassword] = useState("");
   const [errorMessageEmail, setErrorMessageEmail] = useState("");
   const [errorMessagePassword, setErrorMessagePassword] = useState("");
+
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorUser, setErrorUser] = useState("");
 
   const { data: session } = useSession();
 
@@ -36,13 +45,26 @@ const Logger = () => {
       setErrorMessagePassword("Please enter a valid password address");
       return;
     }
-    const result = await signIn("credentials", {
-      email,
-      password,
-      redirect: false,
-    });
-    if (result) {
-      router.push("/dashboard");
+    try {
+      const result = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+      });
+      setLoading(true);
+      if (result.status === 200) {
+        setSuccess(true);
+        setTimeout(() => {
+          router.push("/dashboard");
+        }, 5000);
+      } else if (result.status === 401) {
+        setErrorUser("Please ensure your details are correct");
+        setLoading(false);
+        setError(true);
+      }
+    } catch (error) {
+      setError(true);
+      setLoading(false);
     }
   };
   // const handleLoginGoogle = async () => await signIn();
@@ -56,55 +78,78 @@ const Logger = () => {
     router.replace("/dashboard");
   } else {
     return (
-      <LayoutWrapper>
-        <LoginPanel>
-          <Logo size={350} />
-          <SigninContainer>
-            <Input
-              label="Email"
-              type="email"
-              value={email}
-              onChange={isValidEmail}
-              errorMessage={errorMessageEmail}
-              required={true}
-            />
-            <Input
-              label="Password"
-              type="password"
-              value={password}
-              minLength={8}
-              onChange={(e) => setPassword(e.target.value)}
-              errorMessage={errorMessagePassword}
-              required={true}
-            />
-            <CheckboxButton label="Keep me logged in" />
-            <ButtonContainer>
-              <Button
-                onClick={handleLogin}
-                bg="primary"
-                size="md"
-                btnText="Sign In"
+      <>
+        <LayoutWrapper>
+          <LoginPanel>
+            <Logo size={350} />
+            <SigninContainer>
+              <Input
+                label="Email"
+                type="email"
+                value={email}
+                onChange={isValidEmail}
+                errorMessage={errorMessageEmail}
+                required={true}
               />
-              {/* <Button
+              <Input
+                label="Password"
+                type="password"
+                value={password}
+                minLength={8}
+                onChange={(e) => setPassword(e.target.value)}
+                errorMessage={errorMessagePassword}
+                required={true}
+              />
+              <CheckboxButton label="Keep me logged in" />
+              <ButtonContainer>
+                <Button
+                  onClick={handleLogin}
+                  bg="primary"
+                  size="md"
+                  btnText="Sign In"
+                />
+                {/* <Button
                 onClick={handleLoginGoogle}
                 bg="secondary"
                 size="md"
                 btnText="Sign In with Google"
               /> */}
-            </ButtonContainer>
-          </SigninContainer>
-          <SignUpContainer>
-            <Heading_H3>Create an account</Heading_H3>
-            <Paragraph>
-              Create an account to download tracks and use all our features such
-              as playlists,share and pitch
-            </Paragraph>
-            <Link href="/register" className="login-link">
-              Register now
-            </Link>
-          </SignUpContainer>
-        </LoginPanel>
-      </LayoutWrapper>
+              </ButtonContainer>
+            </SigninContainer>
+            <SignUpContainer>
+              <Heading_H3>Create an account</Heading_H3>
+              <Paragraph>
+                Create an account to download tracks and use all our features
+                such as playlists,share and pitch
+              </Paragraph>
+              <Link href="/register" className="login-link">
+                Register now
+              </Link>
+            </SignUpContainer>
+          </LoginPanel>
+        </LayoutWrapper>
+        <FeedbackWrapper>
+          {loading && <Loading />}
+          {success && (
+            <Succes
+              heading="Welcome back to Foshizi"
+              message="You have successfully logged in"
+              close="/"
+            />
+          )}
+          {error && (
+            <Failure
+              heading="Error"
+              message={
+                errorUser
+                  ? errorUser
+                  : "Oupsss, something went wrong, try again later..."
+              }
+              close="/"
+            />
+          )}
+        </FeedbackWrapper>
+      </>
     );
   }
 };

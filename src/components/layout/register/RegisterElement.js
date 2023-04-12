@@ -9,6 +9,14 @@ export const LayoutWrapper = styled.section`
   align-items: center;
   justify-content: space-between;
 `;
+
+export const FeedbackWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-200%);
+  margin: auto;
+`;
 export const RegisterPanel = styled.div`
   width: 100%;
   display: flex;
