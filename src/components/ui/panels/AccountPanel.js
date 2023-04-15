@@ -34,16 +34,17 @@ const AccountPanel = ({ user }) => {
   const [lastname, setLastname] = useState(user.lastname);
   const [phone, setphone] = useState(user.phone);
 
-  const [number, setStreetNum] = useState(user.physicalAddress.number);
-  const [street, setStreet] = useState(user.physicalAddress.street);
-  const [suburb, setSuburb] = useState(user.physicalAddress.suburb);
-  const [city, setCity] = useState(user.physicalAddress.city);
+  const [number, setStreetNum] = useState(user.physicalAddress?.number);
+  const [street, setStreet] = useState(user.physicalAddress?.street);
+  const [suburb, setSuburb] = useState(user.physicalAddress?.suburb);
+  const [city, setCity] = useState(user.physicalAddress?.city);
   const [province, setProvince] = useState("");
   const [countries, setCountry] = useState("South Africa");
 
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  
   const [errorUser, setErrorUser] = useState("");
 
   const [deleteAccountModal, setDeleteAccount] = useState(false);
@@ -59,6 +60,8 @@ const AccountPanel = ({ user }) => {
       throw new Error("Something went wrong with your " + field + " update");
     }
   };
+
+  console.log(user); 
 
   const updateUserInfo = async () => {
     const fields = [{ firstname }, { lastname }, { phone }];
